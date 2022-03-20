@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "ci": "next build && next export",
+    "ci": "yarn install && next build && next export",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
