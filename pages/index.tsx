@@ -1,35 +1,24 @@
-import * as React from 'react';
-import type { NextPage } from 'next';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
-import Link from '../src/Link';
-import ProTip from '../src/ProTip';
-import Copyright from '../src/Copyright';
+import { Title, Text, Anchor } from '@mantine/core';
+import { ColorSchemeToggle } from '../components/ColorSchemeToggle/ColorSchemeToggle';
 
-const Home: NextPage = () => {
+export default function HomePage() {
   return (
-    <Container maxWidth="lg">
-      <Box
-        sx={{
-          my: 4,
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        <Typography variant="h4" component="h1" gutterBottom>
-          MUI v5 + Next.js with TypeScript example
-        </Typography>
-        <Link href="/about" color="secondary">
-          Go to the about page
-        </Link>
-        <ProTip />
-        <Copyright />
-      </Box>
-    </Container>
+    <>
+      <Title sx={{ fontSize: 100, fontWeight: 900, letterSpacing: -2 }} align="center" mt={100}>
+        Welcome to{' '}
+        <Text inherit variant="gradient" component="span">
+          Mantine
+        </Text>
+      </Title>
+      <Text color="dimmed" align="center" size="lg" sx={{ maxWidth: 580 }} mx="auto" mt="xl">
+        This starter Next.js projects includes a minimal setup for server side rendering, if you
+        want to learn more on Mantine + Next.js integration follow{' '}
+        <Anchor href="https://mantine.dev/theming/next/" size="lg">
+          this guide
+        </Anchor>
+        . To get started edit index.tsx file.
+      </Text>
+      <ColorSchemeToggle />
+    </>
   );
-};
-
-export default Home;
+}
