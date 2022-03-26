@@ -2,10 +2,11 @@ import { GetServerSidePropsContext } from 'next';
 import { useState } from 'react';
 import { AppProps } from 'next/app';
 import { getCookie, setCookies } from 'cookies-next';
-import { ChakraProvider } from '@chakra-ui/react'
+import { ChakraProvider } from '@chakra-ui/react';
 import Head from 'next/head';
 import { MantineProvider, ColorScheme, ColorSchemeProvider, Header } from '@mantine/core';
 import { NotificationsProvider } from '@mantine/notifications';
+import * as React from 'react';
 import { FooterCentered } from '../components/Footer';
 import { HeaderContent } from '../components/HeaderContent';
 
@@ -30,7 +31,9 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
         <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
           <MantineProvider theme={{ colorScheme }} withGlobalStyles withNormalizeCSS>
             <NotificationsProvider>
-              <Header height={60} p="xs">{<HeaderContent />}</Header>
+              <Header height={60} p="xs">
+                <HeaderContent />
+              </Header>
               <Component {...pageProps} />
               <FooterCentered links={[]} />
             </NotificationsProvider>
