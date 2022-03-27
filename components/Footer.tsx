@@ -1,10 +1,6 @@
 import React from 'react';
 import { createStyles, Anchor, Group, ActionIcon } from '@mantine/core';
-import {
-  BrandGithub,
-  Phone,
-  BrandWhatsapp,
-} from 'tabler-icons-react';
+import { BrandGithub, Phone, BrandWhatsapp } from 'tabler-icons-react';
 import { Logo } from './Logo';
 
 const useStyles = createStyles((theme) => ({

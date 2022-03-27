@@ -10,7 +10,6 @@ export function Logo({ style }: any) {
         weight="bold"
         variant="gradient"
         gradient={{ from: 'violet', to: 'teal', deg: 45 }}
-
       >
         ajnart.fr
       </Text>
