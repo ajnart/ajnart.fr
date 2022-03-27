@@ -1,5 +1,5 @@
 import { NextLink } from '@mantine/next';
-import { Text } from '@mantine/core';
+import { Text } from '@chakra-ui/react';
 import * as React from 'react';
 
 export function Logo({ style }: any) {
@@ -7,9 +7,11 @@ export function Logo({ style }: any) {
     <NextLink href="/">
       <Text
         sx={style}
-        weight="bold"
-        variant="gradient"
-        gradient={{ from: 'violet', to: 'teal', deg: 45 }}
+        align="center"
+        textAlign="center"
+        fontWeight="bold"
+        bgClip="text"
+        bgGradient="linear-gradient(90deg, #16BFFD, #CB3066)"
       >
         ajnart.fr
       </Text>
