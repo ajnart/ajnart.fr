@@ -5,7 +5,6 @@ import { Logo } from './Logo';
 
 const useStyles = createStyles((theme) => ({
   footer: {
-    marginTop: 120,
     borderTop: `1px solid ${
       theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[2]
     }`,
@@ -50,7 +49,7 @@ export function FooterCentered({ links }: FooterCenteredProps) {
   ));
 
   return (
-    <div className={classes.footer}>
+    <div style={{ position: 'fixed', bottom: 0, right: 0, left: 0 }} className={classes.footer}>
       <div className={classes.inner}>
         <Logo />
         <Group className={classes.links}>{items}</Group>
