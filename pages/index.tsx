@@ -8,7 +8,7 @@ export default function HomePage() {
     <>
       <Group position="center" direction="column" spacing="xl">
         <Title align="center" sx={{ fontSize: 50, fontWeight: 900, letterSpacing: -2 }} mt={100}>
-          <Logo style={{ fontSize: 80, fontWeight: 900, letterSpacing: -2 }} />
+          <Logo style={{ fontSize: 80, fontWeight: 900 }} />
           🚧Le site est en construction, revenez plus tard
         </Title>
         <Text sx={{ fontSize: 30 }}>(Et vous moquez pas)</Text>
