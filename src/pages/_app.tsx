@@ -4,6 +4,7 @@ import { AppProps } from 'next/app';
 import { getCookie, setCookies } from 'cookies-next';
 import { MantineProvider, ColorScheme, ColorSchemeProvider } from '@mantine/core';
 import { NotificationsProvider } from '@mantine/notifications';
+import Script from 'next/script';
 import Head from 'next/head';
 import Layout from '../components/layout/Layout';
 import '../styles/global.css';
@@ -34,6 +35,15 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
           </NotificationsProvider>
         </MantineProvider>
       </ColorSchemeProvider>
+      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-G8JTFNCFH4" />
+      <Script id="google-analytics">{`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-G8JTFNCFH4');
+      `}
+      </Script>
     </>
   );
 }
