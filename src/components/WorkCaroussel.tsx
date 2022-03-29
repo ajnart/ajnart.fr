@@ -6,7 +6,7 @@ export default function WorkCaroussel() {
   return (
     <Carousel>
       {WorkList.map((work) => (
-        <div>
+        <div key={work.title}>
           <WorkCard key={work.title} {...work} />
         </div>
       ))}
