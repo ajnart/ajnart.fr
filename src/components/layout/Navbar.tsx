@@ -78,6 +78,7 @@ export function Navbar({ links }: HeaderSimpleProps) {
       <Container className={classes.header}>
         <Group spacing={5} className={classes.links}>
           <NextLink
+            style={{ textDecoration: 'none' }}
             href="/"
             onClick={() => {
               setActive('');
