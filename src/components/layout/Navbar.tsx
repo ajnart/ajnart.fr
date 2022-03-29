@@ -74,7 +74,7 @@ export function Navbar({ links }: HeaderSimpleProps) {
   ));
 
   return (
-    <Header height={60} mb={120}>
+    <Header height={60} mb={50}>
       <Container className={classes.header}>
         <Group spacing={5} className={classes.links}>
           <NextLink
