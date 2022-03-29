@@ -4,8 +4,9 @@ import { BrandGithub, Phone, BrandWhatsapp } from 'tabler-icons-react';
 
 const useStyles = createStyles((theme) => ({
   footer: {
-    borderTop: `1px solid ${theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[2]
-      }`,
+    borderTop: `1px solid ${
+      theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[2]
+    }`,
   },
 
   inner: {
@@ -47,7 +48,6 @@ export function Footer({ links }: FooterCenteredProps) {
   ));
 
   return (
-
     <div className={classes.inner}>
       <Group className={classes.links}>{items}</Group>
       <Group spacing={0} position="right" noWrap>
@@ -61,12 +61,14 @@ export function Footer({ links }: FooterCenteredProps) {
           <BrandWhatsapp size={18} />
         </ActionIcon>
       </Group>
-      <Text style={{
-        fontSize: '0.75rem',
-        textAlign: 'center',
-        color: '#a0aec0',
-      }}
-      >ajnart 2022
+      <Text
+        style={{
+          fontSize: '0.75rem',
+          textAlign: 'center',
+          color: '#a0aec0',
+        }}
+      >
+        ajnart 2022
       </Text>
     </div>
   );
