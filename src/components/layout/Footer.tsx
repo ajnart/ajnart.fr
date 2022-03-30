@@ -4,8 +4,9 @@ import { BrandGithub, Phone, BrandWhatsapp } from 'tabler-icons-react';
 
 const useStyles = createStyles((theme) => ({
   footer: {
-    borderTop: `1px solid ${theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[2]
-      }`,
+    borderTop: `1px solid ${
+      theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[2]
+    }`,
   },
 
   inner: {
@@ -66,7 +67,8 @@ export function Footer({ links }: FooterCenteredProps) {
           textAlign: 'center',
           color: '#a0aec0',
         }}
-      >© 2022, Thomas &apos;ajnart&apos; Camlong
+      >
+        © 2022, Thomas &apos;ajnart&apos; Camlong
       </Text>
     </Group>
   );

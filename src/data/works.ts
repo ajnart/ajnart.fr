@@ -48,7 +48,8 @@ export const WorkList: WorkCardProps[] = [
   },
   {
     title: 'Dashboard',
-    description: 'A web application on which you can connect to different services like Spotify, Google and Github to interact with them.',
+    description:
+      'A web application on which you can connect to different services like Spotify, Google and Github to interact with them.',
     image: 'https://www.m-sterspace.io/media/MERN.png',
     link: 'https://github.com/ajnart/dashboard',
     tags: [
