@@ -16,6 +16,7 @@ export default () => (
     slidesPerView={1}
     autoplay={{ delay: 5000 }}
     keyboard
+    loop
     style={{ marginBottom: '50' }}
     pagination={{ clickable: true }}
   >
