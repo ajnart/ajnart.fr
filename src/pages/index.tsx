@@ -1,5 +1,6 @@
-import { Title, Group, Center, Text } from '@mantine/core';
+import { Title, Group, Center, Text, Button } from '@mantine/core';
 import * as React from 'react';
+import { BrandGithub } from 'tabler-icons-react';
 import { Logo } from '../components/Logo';
 import { TabsComponent } from '../components/TabsComponent';
 
@@ -11,7 +12,20 @@ export default function HomePage() {
           <Logo style={{ fontSize: 50, fontWeight: 900 }} />
           🚧Le site est en construction, revenez plus tard
         </Title>
-        <Text sx={{ fontSize: 30 }}>(Et vous moquez pas)</Text>
+        <Button
+          component='a'
+          leftIcon={<BrandGithub />}
+          href="https://github.com/ajnart/ajnart.fr/"
+          target="_blank"
+          style={{
+            fontSize: 20,
+            // Rounded corners
+            borderRadius: 90,
+            // Black background
+            backgroundColor: '#000',
+            marginTop: 20,
+          }}
+        >Le code</Button>
         <Center>
           <TabsComponent />
         </Center>
