@@ -106,18 +106,21 @@ export function Navbar({ links }: HeaderResponsiveProps) {
   return (
     <Header height={HEADER_HEIGHT} mb={60} className={classes.root}>
       <Container className={classes.header}>
-        <NextLink
-          style={{ textDecoration: 'none' }}
-          href="/"
-          onClick={() => {
-            setActive('/');
-          }}
-        >
-          <Logo style={{ fontSize: 22, marginRight: 8 }} />
-        </NextLink>
+        <Group>
+          <ColorSchemeToggle />
+          <NextLink
+            style={{ textDecoration: 'none' }}
+            href="/"
+            onClick={() => {
+              setActive('/');
+            }}
+          >
+            <Logo style={{ fontSize: 22, marginRight: 8 }} />
+          </NextLink>
+
+        </Group>
         <Group spacing={5} className={classes.links}>
           {items}
-          <ColorSchemeToggle />
         </Group>
 
         <Burger
@@ -129,7 +132,7 @@ export function Navbar({ links }: HeaderResponsiveProps) {
 
         <Transition transition="pop-top-right" duration={200} mounted={opened}>
           {(styles) => (
-            <Paper className={classes.dropdown} withBorder style={styles}>
+            <Paper className={classes.dropdown} withBorder style={{zIndex: 99}}>
               {items}
             </Paper>
           )}
