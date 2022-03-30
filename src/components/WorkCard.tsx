@@ -20,7 +20,7 @@ export default function WorkCard(props: WorkCardProps) {
   const secondaryColor = theme.colorScheme === 'dark' ? theme.colors.dark[1] : theme.colors.gray[7];
 
   return (
-    <div style={{ maxWidth: 510, margin: 'auto', marginBottom: 45 }}>
+    <div style={{ maxWidth: 510, margin: 'auto', marginBottom: 40 }}>
       <Card shadow="md" p="xs" mb="xl">
         <Card.Section>
           <Image fit="contain" src={props.image} height={160} alt={props.title} />
