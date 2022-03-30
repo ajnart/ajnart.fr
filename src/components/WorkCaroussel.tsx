@@ -13,9 +13,8 @@ import WorkCard from './WorkCard';
 export default () => (
   <Swiper
     modules={[Navigation, Pagination, A11y, Keyboard, Autoplay]}
-    spaceBetween={50}
     slidesPerView={1}
-    autoplay={{ delay: 10000 }}
+    autoplay={{ delay: 5000 }}
     keyboard
     style={{ marginBottom: '50' }}
     pagination={{ clickable: true }}
