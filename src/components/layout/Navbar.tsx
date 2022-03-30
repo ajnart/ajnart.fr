@@ -1,11 +1,35 @@
 import React, { useState } from 'react';
-import { createStyles, Header, Container, Group, Burger } from '@mantine/core';
+import { createStyles, Header, Container, Group, Burger, Paper, Transition } from '@mantine/core';
 import { useBooleanToggle } from '@mantine/hooks';
-import { NextLink } from '@mantine/next';
-import { Logo } from '../Logo';
 import { ColorSchemeToggle } from '../ColorSchemeToggle';
+import { Logo } from '../Logo';
+import { NextLink } from '@mantine/next';
+
+
+const HEADER_HEIGHT = 60;
 
 const useStyles = createStyles((theme) => ({
+  root: {
+    position: 'relative',
+    zIndex: 1,
+  },
+
+  dropdown: {
+    position: 'absolute',
+    top: HEADER_HEIGHT,
+    left: 0,
+    right: 0,
+    zIndex: 0,
+    borderTopRightRadius: 0,
+    borderTopLeftRadius: 0,
+    borderTopWidth: 0,
+    overflow: 'hidden',
+
+    [theme.fn.largerThan('sm')]: {
+      display: 'none',
+    },
+  },
+
   header: {
     display: 'flex',
     justifyContent: 'space-between',
@@ -14,13 +38,13 @@ const useStyles = createStyles((theme) => ({
   },
 
   links: {
-    [theme.fn.smallerThan('xs')]: {
+    [theme.fn.smallerThan('sm')]: {
       display: 'none',
     },
   },
 
   burger: {
-    [theme.fn.largerThan('xs')]: {
+    [theme.fn.largerThan('sm')]: {
       display: 'none',
     },
   },
@@ -38,6 +62,11 @@ const useStyles = createStyles((theme) => ({
     '&:hover': {
       backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
     },
+
+    [theme.fn.smallerThan('sm')]: {
+      borderRadius: 0,
+      padding: theme.spacing.md,
+    },
   },
 
   linkActive: {
@@ -51,13 +80,13 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export interface HeaderSimpleProps {
+interface HeaderResponsiveProps {
   links: { link: string; label: string }[];
 }
 
-export function Navbar({ links }: HeaderSimpleProps) {
+export function Navbar({ links }: HeaderResponsiveProps) {
   const [opened, toggleOpened] = useBooleanToggle(false);
-  const [active, setActive] = useState('');
+  const [active, setActive] = useState(links[0].link);
   const { classes, cx } = useStyles();
 
   const items = links.map((link) => (
@@ -65,36 +94,46 @@ export function Navbar({ links }: HeaderSimpleProps) {
       key={link.label}
       href={link.link}
       className={cx(classes.link, { [classes.linkActive]: active === link.link })}
-      onClick={() => {
+      onClick={(event) => {
         setActive(link.link);
+        toggleOpened(false);
       }}
     >
       {link.label}
-    </NextLink>
+    </NextLink >
   ));
 
   return (
-    <Header height={60} mb={50}>
+    <Header height={HEADER_HEIGHT} mb={60} className={classes.root}>
       <Container className={classes.header}>
+        <NextLink
+          style={{ textDecoration: 'none' }}
+          href="/"
+          onClick={() => {
+            setActive('/');
+          }}
+        >
+          <Logo style={{ fontSize: 22, marginRight: 8 }} />
+        </NextLink>
         <Group spacing={5} className={classes.links}>
-          <NextLink
-            style={{ textDecoration: 'none' }}
-            href="/"
-            onClick={() => {
-              setActive('');
-            }}
-          >
-            <Logo style={{ fontSize: 22, marginRight: 8 }} />
-          </NextLink>
           {items}
+          <ColorSchemeToggle />
         </Group>
-        <ColorSchemeToggle />
+
         <Burger
           opened={opened}
           onClick={() => toggleOpened()}
           className={classes.burger}
           size="sm"
         />
+
+        <Transition transition="pop-top-right" duration={200} mounted={opened}>
+          {(styles) => (
+            <Paper className={classes.dropdown} withBorder style={styles}>
+              {items}
+            </Paper>
+          )}
+        </Transition>
       </Container>
     </Header>
   );
