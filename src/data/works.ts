@@ -30,26 +30,39 @@ export const WorkList: WorkCardProps[] = [
     ],
   },
   {
-    title: 'Covid-19',
-    description: 'A web application to track the spread of the coronavirus.',
-    image: 'https://github.com/ajnart/mynetflix/blob/master/assets/mynetflix.png?raw=true',
-    link: 'https://github.com/ajnart/mynetflix#',
+    title: 'Area',
+    description:
+      'A cross-platform application that regroups different services such as spotify, deezer and gmail and regroups them.',
+    image: 'https://firebase.flutter.dev/img/flutterfire_300x.png',
+    link: 'https://github.com/ajnart/area',
     tags: [
       {
-        name: 'React',
+        name: 'Flutter',
+        color: 'blue',
+      },
+      {
+        name: 'Firebase',
         color: 'red',
       },
     ],
   },
   {
-    title: 'Covid-19',
-    description: 'A web application to track the spread of the coronavirus.',
-    image: 'https://github.com/ajnart/mynetflix/blob/master/assets/mynetflix.png?raw=true',
-    link: 'https://github.com/ajnart/mynetflix',
+    title: 'Dashboard',
+    description: 'A web application on which you can connect to different services like Spotify, Google and Github to interact with them.',
+    image: 'https://www.m-sterspace.io/media/MERN.png',
+    link: 'https://github.com/ajnart/dashboard',
     tags: [
       {
-        name: 'React',
+        name: 'Express',
         color: 'red',
+      },
+      {
+        name: 'React',
+        color: 'blue',
+      },
+      {
+        name: 'NodeJS',
+        color: 'green',
       },
     ],
   },
