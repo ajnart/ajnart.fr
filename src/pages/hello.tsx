@@ -1,5 +1,13 @@
-import { Title, Text, Anchor, Button, Navbar, Header, Group, MantineGradient } from '@mantine/core';
+import {
+  Title,
+  Text,
+  Anchor,
+  Button,
+  Navbar,
+  Header,
+  Group,
+  MantineGradient,
+  Container,
+} from '@mantine/core';
 
-export default () => (
-  <Group style={{ marginLeft: '30vw', marginRight: '30vw' }} direction={'column'}></Group>
-);
+export default () => <Container></Container>;
