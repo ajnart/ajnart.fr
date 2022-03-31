@@ -1,6 +1,6 @@
 import { Tabs, ThemeIcon, Text, Avatar, Timeline } from '@mantine/core';
 import { Sun, Video } from 'tabler-icons-react';
-import { MdOutlineSchool, MdOutlineScience, MdOutlineWorkOutline } from 'react-icons/md';
+import { MdOutlineCode, MdOutlineSchool, MdOutlineScience, MdOutlineWorkOutline } from 'react-icons/md';
 import * as React from 'react';
 
 function Work() {
@@ -70,6 +70,9 @@ export function TabsComponent() {
         Messages tab content
       </Tabs.Tab>
       <Tabs.Tab label="Education" icon={<MdOutlineSchool size={14} />}>
+        Settings tab content
+      </Tabs.Tab>
+      <Tabs.Tab label="Code" icon={<MdOutlineCode size={14} />}>
         Settings tab content
       </Tabs.Tab>
     </Tabs>

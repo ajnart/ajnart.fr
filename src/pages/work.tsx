@@ -3,12 +3,9 @@ import { Center } from '@mantine/core';
 import { Logout } from 'tabler-icons-react';
 
 
-export default function Layout({ children }) {
-	return (
-		<main>
-			{children}
-		</main>
-	);
-}
+export default () => (
+	<WorkCaroussel />
+)
 
-<WorkCaroussel />
+
+

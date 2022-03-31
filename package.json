@@ -29,8 +29,6 @@
     "@mantine/prism": "^4.0.8",
     "@mantine/rte": "^4.0.8",
     "@mantine/spotlight": "^4.0.8",
-    "@mdx-js/loader": "^2.1.0",
-    "@next/mdx": "^12.1.2",
     "cookies-next": "^2.0.4",
     "dayjs": "^1.11.0",
     "framer-motion": "^6",
