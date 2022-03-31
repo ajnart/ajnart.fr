@@ -5,7 +5,6 @@ import { ColorSchemeToggle } from '../ColorSchemeToggle';
 import { Logo } from '../Logo';
 import { NextLink } from '@mantine/next';
 
-
 const HEADER_HEIGHT = 60;
 
 const useStyles = createStyles((theme) => ({
@@ -100,7 +99,7 @@ export function Navbar({ links }: HeaderResponsiveProps) {
       }}
     >
       {link.label}
-    </NextLink >
+    </NextLink>
   ));
 
   return (
@@ -117,7 +116,6 @@ export function Navbar({ links }: HeaderResponsiveProps) {
           >
             <Logo style={{ fontSize: 22, marginRight: 8 }} />
           </NextLink>
-
         </Group>
         <Group spacing={5} className={classes.links}>
           {items}
@@ -132,7 +130,7 @@ export function Navbar({ links }: HeaderResponsiveProps) {
 
         <Transition transition="pop-top-right" duration={200} mounted={opened}>
           {(styles) => (
-            <Paper className={classes.dropdown} withBorder style={{zIndex: 99}}>
+            <Paper className={classes.dropdown} withBorder style={{ zIndex: 99 }}>
               {items}
             </Paper>
           )}

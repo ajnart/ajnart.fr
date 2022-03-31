@@ -13,7 +13,7 @@ export default function HomePage() {
           🚧Le site est en construction, revenez plus tard
         </Title>
         <Button
-          component='a'
+          component="a"
           leftIcon={<BrandGithub />}
           href="https://github.com/ajnart/ajnart.fr/"
           target="_blank"
@@ -25,7 +25,9 @@ export default function HomePage() {
             backgroundColor: '#000',
             marginTop: 20,
           }}
-        >Le code</Button>
+        >
+          Le code
+        </Button>
         <Center>
           <TabsComponent />
         </Center>
