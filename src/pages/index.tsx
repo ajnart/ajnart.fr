@@ -1,10 +1,11 @@
-import { Title, Group, Center, Text, Button } from '@mantine/core';
+import { Title, Group, Center, Text, Button, Divider } from '@mantine/core';
 import axios from 'axios';
 import * as React from 'react';
-import { BrandGithub } from 'tabler-icons-react';
+import { BrandGithub, Separator } from 'tabler-icons-react';
 import LatestCommit from '../components/LatestCommit';
 import { Logo } from '../components/Logo';
 import { TabsComponent } from '../components/TabsComponent';
+import { AiFillGithub } from 'react-icons/ai';
 
 export async function getStaticProps() {
   const commit = await axios
@@ -22,23 +23,16 @@ export default function HomePage({ commit }) {
           <Logo style={{ fontSize: 50, fontWeight: 900 }} />
           🚧Le site est en construction, revenez plus tard
         </Title>
-        <Button
-          component="a"
-          leftIcon={<BrandGithub />}
-          href="https://github.com/ajnart/ajnart.fr/"
-          target="_blank"
-          style={{
-            fontSize: 20,
-            // Rounded corners
-            borderRadius: 90,
-            // Black background
-            backgroundColor: '#000',
-            marginTop: 20,
-          }}
-        >
-          Le code
-        </Button>
-        <LatestCommit commit={commit} />
+
+        <Group mt={50} direction="column">
+          <Text size="lg" weight={400}>
+            <Group spacing={'xs'}>
+              <AiFillGithub size={25} />
+              Latest commit to the repository
+            </Group>
+          </Text>
+          <LatestCommit commit={commit} />
+        </Group>
         <Center>
           <TabsComponent />
         </Center>
