@@ -62,9 +62,10 @@ jobs:
     #    and modify them (or add more) to build your code if your project
     #    uses a compiled language
 
-    #- run: |
-    #   make bootstrap
-    #   make release
+    - name: Clean install dependencies and build
+      run: |
+        npm install -g yarn
+        yarn ci
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
