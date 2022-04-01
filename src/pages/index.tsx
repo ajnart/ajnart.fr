@@ -1,10 +1,20 @@
 import { Title, Group, Center, Text, Button } from '@mantine/core';
+import axios from 'axios';
 import * as React from 'react';
 import { BrandGithub } from 'tabler-icons-react';
+import LatestCommit from '../components/LatestCommit';
 import { Logo } from '../components/Logo';
 import { TabsComponent } from '../components/TabsComponent';
 
-export default function HomePage() {
+export async function getStaticProps() {
+  const commit = await axios
+    .get(`https://api.github.com/repos/ajnart/ajnart.fr/commits/master`)
+    .then((res) => res.data);
+
+  return { props: { commit } };
+}
+
+export default function HomePage({ commit }) {
   return (
     <Center>
       <Group position="center" direction="column" style={{ maxWidth: 800 }}>
@@ -28,6 +38,7 @@ export default function HomePage() {
         >
           Le code
         </Button>
+        <LatestCommit commit={commit} />
         <Center>
           <TabsComponent />
         </Center>
