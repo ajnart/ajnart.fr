@@ -58,7 +58,7 @@ function Work() {
 
 export function TabsComponent() {
   return (
-    <Tabs tabPadding="lg">
+    <Tabs tabPadding="lg" mt={15}>
       <Tabs.Tab label="Work" icon={<MdOutlineWorkOutline size={14} />}>
         <Work />
       </Tabs.Tab>

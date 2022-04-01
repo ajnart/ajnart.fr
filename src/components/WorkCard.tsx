@@ -21,13 +21,13 @@ export default function WorkCard(props: WorkCardProps) {
 
   return (
     <div style={{ maxWidth: 510, margin: 'auto', marginBottom: 40 }}>
-      <Card shadow="md" p="xs" mb="xl">
+      <Card shadow="md" p="xs" mb="xl" withBorder={true}>
         <Card.Section>
           <Image fit="contain" src={props.image} height={160} alt={props.title} />
         </Card.Section>
 
         <Group position="apart" style={{ marginBottom: 5, marginTop: theme.spacing.sm }}>
-          <Text weight={500}>{props.title}</Text>
+          <Text weight={600}>{props.title}</Text>
           <Group>
             {props.tags && props.tags.length > 0
               ? props.tags.map((tag) => (
@@ -39,7 +39,7 @@ export default function WorkCard(props: WorkCardProps) {
           </Group>
         </Group>
 
-        <Text size="sm" style={{ color: secondaryColor, lineHeight: 1.5, textAlign: 'unset' }}>
+        <Text size="sm" style={{ minHeight: 40, color: secondaryColor, lineHeight: 1.5 }}>
           {props.description}
         </Text>
 

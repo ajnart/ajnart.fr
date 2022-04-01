@@ -3,7 +3,8 @@ import { WorkCardProps } from '../components/WorkCard';
 export const WorkList: WorkCardProps[] = [
   {
     title: 'MyNetflix',
-    description: 'Docker-compose to deploy a stack of containers',
+    description:
+      'Workshop made for Epitech students, explains how to make a Docker-compose to deploy a stack of containers that can act as a replacement for Netflix.',
     image: 'https://github.com/ajnart/mynetflix/blob/master/assets/mynetflix.png?raw=true',
     link: 'https://github.com/ajnart/mynetflix',
     tags: [
