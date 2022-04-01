@@ -2,8 +2,10 @@ import { Anchor, Avatar, Card, Group, Text } from '@mantine/core';
 import React from 'react';
 import { Commit } from '../data/commitClass';
 import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
 
 export default function LatestCommit(props) {
+  dayjs.extend(relativeTime);
   const commitData: Commit = props.commit;
   return (
     <Card
@@ -14,9 +16,6 @@ export default function LatestCommit(props) {
       radius={'md'}
       withBorder={true}
     >
-      {
-        // Replicate the github commit card with the commitData object
-      }
       <Group direction="column" style={{ padding: 10 }}>
         <Anchor target="_blank" href={commitData.html_url}>
           <Text weight={600} size="lg">
@@ -42,7 +41,7 @@ export default function LatestCommit(props) {
             <Text style={{ fontWeight: 500 }}>{commitData.author.login}</Text>
           </Anchor>
           <Text color="dimmed">
-            &nbsp;committed on {dayjs(commitData.commit.author.date).format('MMM D, YYYY')}
+            &nbsp;committed {dayjs(commitData.commit.author.date).fromNow()}
           </Text>
         </Group>
       </Group>
