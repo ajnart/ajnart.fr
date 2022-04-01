@@ -35,14 +35,14 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
           </NotificationsProvider>
         </MantineProvider>
       </ColorSchemeProvider>
-      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-G8JTFNCFH4" />
+      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-DRZQ6FHX78" />
       <Script id="google-analytics">
         {`
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
-        gtag('config', 'G-G8JTFNCFH4');
+        gtag('config', 'G-DRZQ6FHX78');
       `}
       </Script>
     </>
