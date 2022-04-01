@@ -5,7 +5,6 @@ import dayjs from 'dayjs';
 
 export default function LatestCommit(props) {
   const commitData: Commit = props.commit;
-  console.log(commitData.author.avatar_url);
   return (
     <Card
       sx={(theme) => ({
@@ -25,8 +24,12 @@ export default function LatestCommit(props) {
           </Text>
         </Anchor>
         <Group spacing={0} style={{ position: 'absolute', top: 0, right: 0, margin: 15 }}>
-          <Text style={{ color: 'green', marginRight: 5 }}>+{commitData.stats.additions}</Text>
-          <Text style={{ color: 'red', marginLeft: 5 }}>-{commitData.stats.deletions}</Text>
+          <Text weight={600} style={{ color: 'green', marginRight: 5 }}>
+            +{commitData.stats.additions}
+          </Text>
+          <Text weight={600} style={{ color: 'red', marginLeft: 5 }}>
+            -{commitData.stats.deletions}
+          </Text>
         </Group>
         <Group spacing={0}>
           <Avatar
