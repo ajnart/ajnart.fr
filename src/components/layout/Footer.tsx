@@ -48,13 +48,7 @@ export function Footer({ links }: FooterCenteredProps) {
   ));
 
   return (
-    <Group
-      style={{ position: 'absolute', bottom: 0, left: 0, right: 0 }}
-      direction="column"
-      align="center"
-      mb={20}
-      mt={100}
-    >
+    <Group direction="column" align="center" mb={20} mt={100}>
       <Group className={classes.links}>{items}</Group>
       <Group spacing={0} position="right" noWrap>
         <ActionIcon size="lg">
