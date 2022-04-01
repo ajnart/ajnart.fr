@@ -7,6 +7,7 @@ import {
   MdOutlineWorkOutline,
 } from 'react-icons/md';
 import * as React from 'react';
+import WorkCaroussel from './WorkCaroussel';
 
 function Work() {
   return (
@@ -62,7 +63,7 @@ export function TabsComponent() {
         <Work />
       </Tabs.Tab>
       <Tabs.Tab label="Projects" icon={<MdOutlineScience size={14} />}>
-        Messages tab content
+        <WorkCaroussel />
       </Tabs.Tab>
       <Tabs.Tab label="Education" icon={<MdOutlineSchool size={14} />}>
         Settings tab content

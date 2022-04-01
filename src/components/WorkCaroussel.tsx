@@ -17,11 +17,13 @@ export default () => (
     autoplay={{ delay: 5000 }}
     keyboard
     loop
-    style={{ marginBottom: '50' }}
+    style={{
+      maxWidth: 510,
+    }}
     pagination={{ clickable: true }}
   >
     {WorkList.map((work) => (
-      <SwiperSlide>
+      <SwiperSlide key={work.title}>
         <WorkCard key={work.title} {...work} />
       </SwiperSlide>
     ))}
