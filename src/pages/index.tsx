@@ -1,9 +1,7 @@
 import { Title, Group, Center, Text, Button, Divider } from '@mantine/core';
 import axios from 'axios';
 import * as React from 'react';
-import { BrandGithub, Separator } from 'tabler-icons-react';
 import LatestCommit from '../components/LatestCommit';
-import { Logo } from '../components/Logo';
 import { TabsComponent } from '../components/TabsComponent';
 import { AiFillGithub } from 'react-icons/ai';
 
@@ -20,8 +18,7 @@ export default function HomePage({ commit }) {
     <Center>
       <Group position="center" direction="column" style={{ maxWidth: 800 }}>
         <Title align="center" sx={{ fontSize: 50, fontWeight: 900, letterSpacing: -2 }}>
-          <Logo style={{ fontSize: 50, fontWeight: 900 }} />
-          🚧Le site est en construction, revenez plus tard
+          🚧 This website is still under construction 🚧
         </Title>
 
         <Group mt={50} direction="column">

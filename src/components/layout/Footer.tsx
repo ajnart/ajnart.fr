@@ -1,6 +1,7 @@
 import React from 'react';
 import { createStyles, Anchor, Text, Group, ActionIcon } from '@mantine/core';
-import { BrandGithub, Phone, BrandWhatsapp, Bottle } from 'tabler-icons-react';
+import { BrandGithub, Phone, BrandWhatsapp, Bottle, BrandGmail } from 'tabler-icons-react';
+import { MdEmail } from 'react-icons/md';
 
 const useStyles = createStyles((theme) => ({
   footer: {
@@ -51,14 +52,14 @@ export function Footer({ links }: FooterCenteredProps) {
     <Group direction="column" align="center" mb={20} mt={100}>
       <Group className={classes.links}>{items}</Group>
       <Group spacing={0} position="right" noWrap>
-        <ActionIcon size="lg">
+        <ActionIcon<'a'> component="a" href="https://github.com/ajnart" size="lg">
           <BrandGithub size={18} />
         </ActionIcon>
-        <ActionIcon size="lg">
+        <ActionIcon<'a'> component="a" href="phone:+33677259540" size="lg">
           <Phone size={18} />
         </ActionIcon>
-        <ActionIcon size="lg">
-          <BrandWhatsapp size={18} />
+        <ActionIcon<'a'> component="a" href="mailto:thomascamlong@gmail.com" size="lg">
+          <BrandGmail size={18} />
         </ActionIcon>
       </Group>
       <Text
