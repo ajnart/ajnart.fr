@@ -71,7 +71,7 @@ export function TabsComponent() {
   const { classes, cx } = useStyles();
   return (
     <Tabs mb={15}
-      grow={false}
+      grow={true}
       className={cx(classes.work)}
       sx={{
         width: '100vw',
