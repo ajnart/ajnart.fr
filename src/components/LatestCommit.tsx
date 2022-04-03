@@ -11,7 +11,7 @@ export default function LatestCommit(props) {
     <Card
       sx={(theme) => ({
         backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
-        width: 400,
+        maxWidth: '50%',
       })}
       radius={'md'}
       withBorder={true}

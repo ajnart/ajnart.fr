@@ -4,7 +4,8 @@ import * as React from 'react';
 import LatestCommit from '../components/LatestCommit';
 import { TabsComponent } from '../components/TabsComponent';
 import { AiFillGithub } from 'react-icons/ai';
-import { links } from '../data/constants';
+import { links, WhoAmI } from '../data/constants';
+import InfoCard from '../components/InfoCard';
 
 export async function getStaticProps() {
   const commit = await axios
@@ -17,24 +18,20 @@ export async function getStaticProps() {
 export default function HomePage({ commit }) {
   return (
     <Center>
-      <Group position="center" direction="column" style={{ maxWidth: 800 }}>
-        <Title align="center" sx={{ fontSize: 50, fontWeight: 900, letterSpacing: -2 }}>
+      <Group position="center" direction="column" spacing={'xl'}>
+        <Title align="center" sx={{ fontSize: 50, fontWeight: 900 }}>
           🚧 This website is still under construction 🚧
         </Title>
-
-        <Group mt={50} direction="column">
-          <Text size="lg" weight={400}>
-            <Group spacing={'xs'}>
-              <AiFillGithub size={25} />
-              Latest commit to the repository
-            </Group>
-          </Text>
-          <LatestCommit commit={commit} />
-        </Group>
+        <InfoCard {...WhoAmI} />
+        <Text size="lg" weight={400}>
+          <AiFillGithub size={25} />
+          Latest commit to the repository
+        </Text>
+        <LatestCommit commit={commit} />
         <Center>
           <TabsComponent />
         </Center>
-      </Group>
-    </Center>
+      </Group >
+    </Center >
   );
 }

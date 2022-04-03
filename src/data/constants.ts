@@ -20,12 +20,17 @@ export const NavLinks = [
 
 export const WhoAmI: InfoCardProps = {
   title: 'Thomas',
-  description: 'Je suis turbo méga',
+  description:
+    '21 Year old student studying computer science at EPITECH in Bordeaux, France. I am interested in new programming technologies including but not limited to: Machine Learning, Flutter, DevOps techniques and embedded programming. Currently building this website with React and Typescript.',
   location: 'Bordeaux, France',
   imageUrl: 'https://avatars.githubusercontent.com/u/49837342?v=4',
   links: [
     { label: 'github', link: `https://github.com/${links.GithubName}`, icon: BrandGithub },
-    { label: 'linkedin', link: `https://www.linkedin.com/in/${links.LinkedinName}`, icon: BrandLinkedin },
+    {
+      label: 'linkedin',
+      link: `https://www.linkedin.com/in/${links.LinkedinName}`,
+      icon: BrandLinkedin,
+    },
   ],
 };
 

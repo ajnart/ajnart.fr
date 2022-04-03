@@ -103,7 +103,7 @@ export function Navbar({ links }: HeaderResponsiveProps) {
   ));
 
   return (
-    <Header height={HEADER_HEIGHT} mb={10} className={classes.root}>
+    <Header height={HEADER_HEIGHT} mb={120} className={classes.root}>
       <Container className={classes.header}>
         <Group>
           <ColorSchemeToggle />
