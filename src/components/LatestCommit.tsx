@@ -23,8 +23,9 @@ export default function LatestCommit(props) {
           </Text>
         </Anchor>
         <Group spacing={0} style={{ position: 'absolute', top: 0, right: 0, margin: 15 }}>
-          <Text weight={600} style={{ color: 'green', marginRight: 5 }}></Text>+
-          {commitData.stats.additions}
+          <Text weight={600} style={{ color: 'green', marginRight: 5 }}>
+            +{commitData.stats.additions}
+          </Text>
           <Text weight={600} style={{ color: 'red', marginLeft: 5 }}>
             -{commitData.stats.deletions}{' '}
           </Text>
