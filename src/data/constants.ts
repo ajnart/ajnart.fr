@@ -13,9 +13,8 @@ export const links = {
 
 export const NavLinks = [
   { label: '/', link: '/' },
-  { label: 'about me', link: '/about' },
   { label: 'portfolio', link: '/work' },
-  { label: 'cv', link: 'https://ajnart.github.io/' },
+  { label: 'my cv', link: 'https://ajnart.github.io/' },
 ];
 
 export const WhoAmI: InfoCardProps = {

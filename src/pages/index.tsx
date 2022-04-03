@@ -1,11 +1,10 @@
-import { Title, Group, Center, Text, Button, Divider, Box } from '@mantine/core';
+import { Title, Group, Center, Text } from '@mantine/core';
 import axios from 'axios';
 import * as React from 'react';
 import LatestCommit from '../components/LatestCommit';
 import { TabsComponent } from '../components/TabsComponent';
 import { AiFillGithub } from 'react-icons/ai';
-import { links, WhoAmI } from '../data/constants';
-import InfoCard from '../components/InfoCard';
+import { links } from '../data/constants';
 
 export async function getStaticProps() {
   const commit = await axios
@@ -22,10 +21,6 @@ export default function HomePage({ commit }) {
         <Title align="center" sx={{ fontSize: 30, fontWeight: 900 }}>
           🚧 This website is still under construction 🚧
         </Title>
-        <Box style={{ maxWidth: 600 }}>
-          <InfoCard {...WhoAmI} />
-
-        </Box>
         <Text size="lg" weight={400}>
           <AiFillGithub size={25} />
           Latest commit to the repository

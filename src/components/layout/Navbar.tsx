@@ -4,6 +4,8 @@ import { useBooleanToggle } from '@mantine/hooks';
 import { ColorSchemeToggle } from '../ColorSchemeToggle';
 import { Logo } from '../Logo';
 import { NextLink } from '@mantine/next';
+import { WhoAmI } from '../../data/constants';
+import { InfoToggle } from '../InfoCard';
 
 const HEADER_HEIGHT = 60;
 
@@ -88,19 +90,24 @@ export function Navbar({ links }: HeaderResponsiveProps) {
   const [active, setActive] = useState(links[0].link);
   const { classes, cx } = useStyles();
 
-  const items = links.map((link) => (
-    <NextLink
-      key={link.label}
-      href={link.link}
-      className={cx(classes.link, { [classes.linkActive]: active === link.link })}
-      onClick={(event) => {
-        setActive(link.link);
-        toggleOpened(false);
-      }}
-    >
-      {link.label}
-    </NextLink>
-  ));
+  const items =
+    <>
+      {links.map((link) => (
+        <NextLink
+          key={link.label}
+          href={link.link}
+          className={cx(classes.link, { [classes.linkActive]: active === link.link })}
+          onClick={(event) => {
+            setActive(link.link);
+            toggleOpened(false);
+          }}
+        >
+          {link.label}
+        </NextLink>
+      ))}
+      <InfoToggle {...WhoAmI} />
+    </>
+    ;
 
   return (
     <Header height={HEADER_HEIGHT} mb={120} className={classes.root}>
