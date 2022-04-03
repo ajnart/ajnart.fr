@@ -18,16 +18,15 @@ export default function LatestCommit(props) {
     >
       <Group direction="column" style={{ padding: 10 }}>
         <Anchor target="_blank" href={commitData.html_url}>
-          <Text weight={600} size="lg">
+          <Text weight={600} size="lg" mr={30}>
             {commitData.commit.message}
           </Text>
         </Anchor>
         <Group spacing={0} style={{ position: 'absolute', top: 0, right: 0, margin: 15 }}>
-          <Text weight={600} style={{ color: 'green', marginRight: 5 }}>
-            +{commitData.stats.additions}
-          </Text>
+          <Text weight={600} style={{ color: 'green', marginRight: 5 }}></Text>+
+          {commitData.stats.additions}
           <Text weight={600} style={{ color: 'red', marginLeft: 5 }}>
-            -{commitData.stats.deletions}
+            -{commitData.stats.deletions}{' '}
           </Text>
         </Group>
         <Group spacing={0}>
