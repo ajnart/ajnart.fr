@@ -4,10 +4,11 @@ import * as React from 'react';
 import LatestCommit from '../components/LatestCommit';
 import { TabsComponent } from '../components/TabsComponent';
 import { AiFillGithub } from 'react-icons/ai';
+import { links } from '../data/constants';
 
 export async function getStaticProps() {
   const commit = await axios
-    .get(`https://api.github.com/repos/ajnart/ajnart.fr/commits/master`)
+    .get(`https://api.github.com/repos/${links.GithubName}/${links.GithubRepo}/commits/master`)
     .then((res) => res.data);
 
   return { props: { commit } };

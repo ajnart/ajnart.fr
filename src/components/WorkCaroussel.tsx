@@ -7,7 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { WorkList } from '../data/works';
+import { WorkList } from '../data/constants';
 import WorkCard from './WorkCard';
 
 export default () => (
