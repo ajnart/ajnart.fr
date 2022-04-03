@@ -20,7 +20,7 @@ export default function WorkCard(props: WorkCardProps) {
   const secondaryColor = theme.colorScheme === 'dark' ? theme.colors.dark[1] : theme.colors.gray[7];
 
   return (
-    <div style={{ maxWidth: 510, margin: 'auto', marginBottom: 40 }}>
+    <div style={{ margin: 'auto', marginBottom: 40 }}>
       <Card shadow="md" p="xs" mb="xl" withBorder={true}>
         <Card.Section>
           <Image fit="contain" src={props.image} height={160} alt={props.title} />
@@ -31,10 +31,10 @@ export default function WorkCard(props: WorkCardProps) {
           <Group>
             {props.tags && props.tags.length > 0
               ? props.tags.map((tag) => (
-                  <Badge key={tag.name} color={tag.color}>
-                    {tag.name}
-                  </Badge>
-                ))
+                <Badge key={tag.name} color={tag.color}>
+                  {tag.name}
+                </Badge>
+              ))
               : null}
           </Group>
         </Group>

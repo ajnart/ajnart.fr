@@ -1,7 +1,7 @@
 import { Anchor, Avatar, Card, Group, Text } from '@mantine/core';
-import React from 'react';
 import { Commit } from '../data/commitClass';
 import dayjs from 'dayjs';
+import React from 'react';
 import relativeTime from 'dayjs/plugin/relativeTime';
 
 export default function LatestCommit(props) {
@@ -10,8 +10,8 @@ export default function LatestCommit(props) {
   return (
     <Card
       sx={(theme) => ({
+        maxWidth: 600,
         backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
-        maxWidth: '50%',
       })}
       radius={'md'}
       withBorder={true}

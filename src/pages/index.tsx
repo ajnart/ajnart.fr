@@ -1,4 +1,4 @@
-import { Title, Group, Center, Text, Button, Divider } from '@mantine/core';
+import { Title, Group, Center, Text, Button, Divider, Box } from '@mantine/core';
 import axios from 'axios';
 import * as React from 'react';
 import LatestCommit from '../components/LatestCommit';
@@ -19,10 +19,13 @@ export default function HomePage({ commit }) {
   return (
     <Center>
       <Group position="center" direction="column" spacing={'xl'}>
-        <Title align="center" sx={{ fontSize: 50, fontWeight: 900 }}>
+        <Title align="center" sx={{ fontSize: 30, fontWeight: 900 }}>
           🚧 This website is still under construction 🚧
         </Title>
-        <InfoCard {...WhoAmI} />
+        <Box style={{ maxWidth: 600 }}>
+          <InfoCard {...WhoAmI} />
+
+        </Box>
         <Text size="lg" weight={400}>
           <AiFillGithub size={25} />
           Latest commit to the repository

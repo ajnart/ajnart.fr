@@ -1,4 +1,4 @@
-import { Tabs, ThemeIcon, Text, Avatar, Timeline, Image } from '@mantine/core';
+import { Tabs, ThemeIcon, Text, Avatar, Timeline, Image, createStyles } from '@mantine/core';
 import { Sun, Video } from 'tabler-icons-react';
 import {
   MdOutlineCode,
@@ -9,9 +9,20 @@ import {
 import * as React from 'react';
 import WorkCaroussel from './WorkCaroussel';
 
+const useStyles = createStyles((theme) => ({
+  work: {
+    [theme.fn.smallerThan('md')]: {
+      width: '100vw',
+    },
+    [theme.fn.largerThan('md')]: {
+      width: 600,
+    }
+  },
+}));
+
 function Work() {
   return (
-    <div style={{ maxWidth: 320, margin: 'auto' }}>
+    <div style={{ padding: 15 }}>
       <Timeline active={3} bulletSize={24} lineWidth={2}>
         <Timeline.Item
           bullet={
@@ -57,20 +68,23 @@ function Work() {
 }
 
 export function TabsComponent() {
+  const { classes, cx } = useStyles();
   return (
-    <Tabs tabPadding="lg" mt={15}>
+    <Tabs mb={15}
+      grow={false}
+      className={cx(classes.work)}
+      sx={{
+        width: '100vw',
+        maxHeight: 300,
+      }}
+      tabPadding="lg" mt={15}>
       <Tabs.Tab label="Work" icon={<MdOutlineWorkOutline size={14} />}>
         <Work />
       </Tabs.Tab>
       <Tabs.Tab label="Projects" icon={<MdOutlineScience size={14} />}>
         <WorkCaroussel />
       </Tabs.Tab>
-      <Tabs.Tab label="Education" icon={<MdOutlineSchool size={14} />}>
-        Settings tab content
-      </Tabs.Tab>
-      <Tabs.Tab label="Code" icon={<MdOutlineCode size={14} />}>
-        Settings tab content
-      </Tabs.Tab>
     </Tabs>
   );
 }
+
