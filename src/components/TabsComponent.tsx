@@ -1,4 +1,13 @@
-import { Tabs, ThemeIcon, Text, Avatar, Timeline, Image, createStyles, TabsProps } from '@mantine/core';
+import {
+  Tabs,
+  ThemeIcon,
+  Text,
+  Avatar,
+  Timeline,
+  Image,
+  createStyles,
+  TabsProps,
+} from '@mantine/core';
 import { Sun, Video } from 'tabler-icons-react';
 import {
   MdOutlineCode,
@@ -9,7 +18,6 @@ import {
 import * as React from 'react';
 import WorkCaroussel from './WorkCaroussel';
 
-
 function StyledTabs(props: TabsProps) {
   return (
     <Tabs
@@ -18,7 +26,9 @@ function StyledTabs(props: TabsProps) {
         tabControl: {
           backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.white,
           color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.gray[9],
-          border: `1px solid ${theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[4]}`,
+          border: `1px solid ${
+            theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[4]
+          }`,
           fontSize: theme.fontSizes.md,
           padding: `${theme.spacing.lg}px ${theme.spacing.xl}px`,
 
@@ -55,7 +65,7 @@ const useStyles = createStyles((theme) => ({
     },
     [theme.fn.largerThan('md')]: {
       width: 600,
-    }
+    },
   },
 }));
 
@@ -65,7 +75,12 @@ function Work() {
       <Timeline active={3} bulletSize={24} lineWidth={2}>
         <Timeline.Item
           bullet={
-            <Image style={{ filter: 'contrast(200%)' }} color="blue" src="/images/mangrove.png" />
+            <Image
+              alt="mangrove image"
+              style={{ filter: 'contrast(200%)' }}
+              color="blue"
+              src="/images/mangrove.png"
+            />
           }
           bulletSize={24}
           title="Mangrove.ai"
@@ -78,7 +93,9 @@ function Work() {
           </Text>
         </Timeline.Item>
         <Timeline.Item
-          bullet={<Image style={{ filter: 'contrast(100%)' }} src="/images/lumi.png" />}
+          bullet={
+            <Image alt="lumi logo" style={{ filter: 'contrast(100%)' }} src="/images/lumi.png" />
+          }
           bulletSize={24}
           title="LumiTHD"
         >
@@ -90,7 +107,13 @@ function Work() {
           </Text>
         </Timeline.Item>
         <Timeline.Item
-          bullet={<Image style={{ filter: 'grayscale(100%)' }} src="/images/mangrove.png" />}
+          bullet={
+            <Image
+              alt="mangrove logo"
+              style={{ filter: 'grayscale(100%)' }}
+              src="/images/mangrove.png"
+            />
+          }
           bulletSize={24}
           title="Mangrove.ai"
         >
@@ -109,14 +132,17 @@ function Work() {
 export function TabsComponent() {
   const { classes, cx } = useStyles();
   return (
-    <StyledTabs mb={15}
+    <StyledTabs
+      mb={15}
       grow={true}
       className={cx(classes.work)}
       sx={{
         width: '100vw',
         maxHeight: 300,
       }}
-      tabPadding="lg" mt={15}>
+      tabPadding="lg"
+      mt={15}
+    >
       <Tabs.Tab label="Work" icon={<MdOutlineWorkOutline size={14} />}>
         <Work />
       </Tabs.Tab>
@@ -126,4 +152,3 @@ export function TabsComponent() {
     </StyledTabs>
   );
 }
-

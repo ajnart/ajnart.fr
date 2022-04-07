@@ -90,7 +90,7 @@ export function Navbar({ links }: HeaderResponsiveProps) {
   const [active, setActive] = useState(links[0].link);
   const { classes, cx } = useStyles();
 
-  const items =
+  const items = (
     <>
       {links.map((link) => (
         <NextLink
@@ -107,8 +107,7 @@ export function Navbar({ links }: HeaderResponsiveProps) {
       ))}
       <InfoToggle {...WhoAmI} />
     </>
-    ;
-
+  );
   return (
     <Header height={HEADER_HEIGHT} mb={120} className={classes.root}>
       <Container className={classes.header}>

@@ -31,10 +31,10 @@ export default function WorkCard(props: WorkCardProps) {
           <Group>
             {props.tags && props.tags.length > 0
               ? props.tags.map((tag) => (
-                <Badge key={tag.name} color={tag.color}>
-                  {tag.name}
-                </Badge>
-              ))
+                  <Badge key={tag.name} color={tag.color}>
+                    {tag.name}
+                  </Badge>
+                ))
               : null}
           </Group>
         </Group>

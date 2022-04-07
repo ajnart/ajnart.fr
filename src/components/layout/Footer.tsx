@@ -6,8 +6,9 @@ import * as CONSTANTS from '../../data/constants';
 
 const useStyles = createStyles((theme) => ({
   footer: {
-    borderTop: `1px solid ${theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[2]
-      }`,
+    borderTop: `1px solid ${
+      theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[2]
+    }`,
   },
 
   inner: {
@@ -52,7 +53,11 @@ export function Footer({ links }: FooterCenteredProps) {
     <Group direction="column" align="center" mb={20} mt={100}>
       <Group className={classes.links}>{items}</Group>
       <Group spacing={0} position="right" noWrap>
-        <ActionIcon<'a'> component="a" href={`https://github.com/${CONSTANTS.links.GithubName}`} size="lg">
+        <ActionIcon<'a'>
+          component="a"
+          href={`https://github.com/${CONSTANTS.links.GithubName}`}
+          size="lg"
+        >
           <BrandGithub size={18} />
         </ActionIcon>
         <ActionIcon<'a'> component="a" href={`phone:${CONSTANTS.links.PhoneNumber}`} size="lg">
@@ -71,6 +76,6 @@ export function Footer({ links }: FooterCenteredProps) {
       >
         © 2022, Thomas &apos;ajnart&apos; Camlong
       </Text>
-    </Group >
+    </Group>
   );
 }

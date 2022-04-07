@@ -29,7 +29,7 @@ export default function HomePage({ commit }) {
         <Center>
           <TabsComponent />
         </Center>
-      </Group >
-    </Center >
+      </Group>
+    </Center>
   );
 }
