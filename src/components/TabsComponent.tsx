@@ -2,21 +2,17 @@ import {
   Tabs,
   ThemeIcon,
   Text,
-  Avatar,
   Timeline,
   Image,
   createStyles,
   TabsProps,
+  Anchor,
 } from '@mantine/core';
-import { Sun, Video } from 'tabler-icons-react';
-import {
-  MdOutlineCode,
-  MdOutlineSchool,
-  MdOutlineScience,
-  MdOutlineWorkOutline,
-} from 'react-icons/md';
+import ReactMarkdown from 'react-markdown';
+import { MdOutlineCode, MdOutlineScience, MdOutlineWorkOutline } from 'react-icons/md';
 import * as React from 'react';
-import WorkCaroussel from './WorkCaroussel';
+import ProjectsCaroussel from './WorkCaroussel';
+import { Jobs, Programmaing as Programming } from '../data/constants';
 
 function StyledTabs(props: TabsProps) {
   return (
@@ -26,8 +22,9 @@ function StyledTabs(props: TabsProps) {
         tabControl: {
           backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.white,
           color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.gray[9],
-          border: `1px solid ${theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[4]
-            }`,
+          border: `1px solid ${
+            theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[4]
+          }`,
           fontSize: theme.fontSizes.md,
           padding: `${theme.spacing.lg}px ${theme.spacing.xl}px`,
 
@@ -57,95 +54,71 @@ function StyledTabs(props: TabsProps) {
   );
 }
 
-const useStyles = createStyles((theme) => ({
-  work: {
-    [theme.fn.smallerThan('md')]: {
-      width: '100vw',
-    },
-    [theme.fn.largerThan('md')]: {
-      width: 600,
-    },
-  },
-}));
-
-function Work() {
+export function ProgrammingTab() {
   return (
-    <div style={{ padding: 15 }}>
-      <Timeline active={3} bulletSize={24} lineWidth={2}>
+    <Timeline m={15}>
+      {Programming.map((language, index) => (
         <Timeline.Item
+          key={index}
+          lineVariant="dotted"
+          bullet={
+            <ThemeIcon size={30} radius="xl">
+              <language.icon size={20} />
+            </ThemeIcon>
+          }
+        >
+          <Text weight={550} size="md">
+            {language.name}
+          </Text>
+          <ReactMarkdown>{language.description}</ReactMarkdown>
+        </Timeline.Item>
+      ))}
+    </Timeline>
+  );
+}
+
+function WorkTab() {
+  return (
+    <Timeline m={15} active={Jobs.length} bulletSize={24} lineWidth={2}>
+      {Jobs.map((job, index) => (
+        <Timeline.Item
+          key={index}
           bullet={
             <Image
-              alt="mangrove image"
+              alt={job.title}
               style={{ filter: 'contrast(200%)' }}
               color="blue"
-              src="/images/mangrove.png"
+              src={job.image}
             />
           }
           bulletSize={24}
-          title="Mangrove.ai"
-        >
-          <Text color="dimmed" size="sm">
-            Default bullet without anything
-          </Text>
-          <Text size="xs" mt={4}>
-            2 hours ago
-          </Text>
-        </Timeline.Item>
-        <Timeline.Item
-          bullet={
-            <Image alt="lumi logo" style={{ filter: 'contrast(100%)' }} src="/images/lumi.png" />
+          title={
+            <Anchor href={job.link} target="_blank">
+              {job.title}
+            </Anchor>
           }
-          bulletSize={24}
-          title="LumiTHD"
         >
-          <Text color="dimmed" size="sm">
-            Default bullet without anything
-          </Text>
-          <Text size="xs" mt={4}>
-            2 hours ago
+          <Text size="sm">{job.description}</Text>
+          <Text color="dimmed" size="xs" mt={4}>
+            {job.date}
           </Text>
         </Timeline.Item>
-        <Timeline.Item
-          bullet={
-            <Image
-              alt="mangrove logo"
-              style={{ filter: 'grayscale(100%)' }}
-              src="/images/mangrove.png"
-            />
-          }
-          bulletSize={24}
-          title="Mangrove.ai"
-        >
-          <Text color="dimmed" size="sm">
-            Default bullet without anything
-          </Text>
-          <Text size="xs" mt={4}>
-            2 hours ago
-          </Text>
-        </Timeline.Item>
-      </Timeline>
-    </div>
+      ))}
+    </Timeline>
   );
 }
 
 export function TabsComponent() {
-  const { classes, cx } = useStyles();
   return (
-    <StyledTabs
-      mb={15}
-      grow={true}
-      className={cx(classes.work)}
-      sx={{
-        width: '100vw',
-        maxHeight: 300,
-      }}
-      tabPadding="lg"
-    >
+    <StyledTabs mb={15} grow={true} tabPadding="lg">
+      <Tabs.Tab label="Programming" icon={<MdOutlineCode size={14} />}>
+        <ProgrammingTab />
+      </Tabs.Tab>
       <Tabs.Tab label="Work" icon={<MdOutlineWorkOutline size={14} />}>
-        <Work />
+        <WorkTab />
       </Tabs.Tab>
       <Tabs.Tab label="Projects" icon={<MdOutlineScience size={14} />}>
-        <WorkCaroussel />
+        <ProjectsCaroussel />
       </Tabs.Tab>
     </StyledTabs>
   );

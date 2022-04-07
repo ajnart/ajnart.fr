@@ -66,7 +66,7 @@ export function InfoToggle(props: InfoCardProps) {
   );
 }
 
-function Info(props: InfoCardProps & { maxWidth: number }) {
+function Info(props: any) {
   return (
     <Group noWrap align={'start'} direction="row" style={{ ...props }}>
       {/* Profile picture if it exists*/}
@@ -114,14 +114,13 @@ export default function InfoCard(props: InfoCardProps) {
   return (
     <Box
       sx={(theme) => ({
-        backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
+        backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[1],
         padding: theme.spacing.md,
         borderRadius: theme.radius.md,
         boxShadow: theme.shadows.md,
-        maxWidth: 600,
       })}
     >
-      <Info maxWidth={0} {...props} />
+      <Info {...props} />
     </Box>
   );
 }

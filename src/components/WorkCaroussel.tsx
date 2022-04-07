@@ -11,7 +11,7 @@ import { WorkList } from '../data/constants';
 import WorkCard from './WorkCard';
 import { createStyles } from '@mantine/core';
 
-export default function WorkCaroussel() {
+export default function ProjectCaroussel() {
   return (
     <Swiper
       modules={[Navigation, Pagination, A11y, Keyboard, Autoplay]}
