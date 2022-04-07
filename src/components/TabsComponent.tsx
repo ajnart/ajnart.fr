@@ -1,4 +1,4 @@
-import { Tabs, ThemeIcon, Text, Avatar, Timeline, Image, createStyles } from '@mantine/core';
+import { Tabs, ThemeIcon, Text, Avatar, Timeline, Image, createStyles, TabsProps } from '@mantine/core';
 import { Sun, Video } from 'tabler-icons-react';
 import {
   MdOutlineCode,
@@ -8,6 +8,45 @@ import {
 } from 'react-icons/md';
 import * as React from 'react';
 import WorkCaroussel from './WorkCaroussel';
+
+
+function StyledTabs(props: TabsProps) {
+  return (
+    <Tabs
+      variant="unstyled"
+      styles={(theme) => ({
+        tabControl: {
+          backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.white,
+          color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.gray[9],
+          border: `1px solid ${theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[4]}`,
+          fontSize: theme.fontSizes.md,
+          padding: `${theme.spacing.lg}px ${theme.spacing.xl}px`,
+
+          '&:not(:first-of-type)': {
+            borderLeft: 0,
+          },
+
+          '&:first-of-type': {
+            borderTopLeftRadius: theme.radius.md,
+            borderBottomLeftRadius: theme.radius.md,
+          },
+
+          '&:last-of-type': {
+            borderTopRightRadius: theme.radius.md,
+            borderBottomRightRadius: theme.radius.md,
+          },
+        },
+
+        tabActive: {
+          backgroundColor: theme.colors.blue[7],
+          borderColor: theme.colors.blue[7],
+          color: theme.white,
+        },
+      })}
+      {...props}
+    />
+  );
+}
 
 const useStyles = createStyles((theme) => ({
   work: {
@@ -70,7 +109,7 @@ function Work() {
 export function TabsComponent() {
   const { classes, cx } = useStyles();
   return (
-    <Tabs mb={15}
+    <StyledTabs mb={15}
       grow={true}
       className={cx(classes.work)}
       sx={{
@@ -84,7 +123,7 @@ export function TabsComponent() {
       <Tabs.Tab label="Projects" icon={<MdOutlineScience size={14} />}>
         <WorkCaroussel />
       </Tabs.Tab>
-    </Tabs>
+    </StyledTabs>
   );
 }
 
