@@ -26,9 +26,8 @@ function StyledTabs(props: TabsProps) {
         tabControl: {
           backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.white,
           color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.gray[9],
-          border: `1px solid ${
-            theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[4]
-          }`,
+          border: `1px solid ${theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[4]
+            }`,
           fontSize: theme.fontSizes.md,
           padding: `${theme.spacing.lg}px ${theme.spacing.xl}px`,
 
@@ -141,7 +140,6 @@ export function TabsComponent() {
         maxHeight: 300,
       }}
       tabPadding="lg"
-      mt={15}
     >
       <Tabs.Tab label="Work" icon={<MdOutlineWorkOutline size={14} />}>
         <Work />
