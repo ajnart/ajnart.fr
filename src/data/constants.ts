@@ -7,6 +7,7 @@ import {
   SiCplusplus,
   SiDocker,
   SiFirebase,
+  SiFlutter,
   SiPython,
   SiReact,
   SiTypescript,
@@ -38,6 +39,12 @@ export const Programmaing = [
     icon: SiReact,
     description:
       'Several projects using React using various components librarires such as **Material UI**, **Chakra UI** and **Mantine**. React Native projects for my 3rd year at Epitech, this website and during my internship at Mangrove.',
+  },
+  {
+    name: 'Flutter',
+    icon: SiFlutter,
+    description:
+      'Second and third year at Epitech, personal projects using **Flutter** and **Firebase**, also did a 6-weeks course on Udemy during spring 2021 about building full-stack apps with flutter',
   },
   {
     name: 'Cloud Computing',
