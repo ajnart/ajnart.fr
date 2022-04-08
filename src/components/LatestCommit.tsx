@@ -10,7 +10,6 @@ export default function LatestCommit(props) {
   return (
     <Box
       sx={(theme) => ({
-        width: 800,
         backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[1],
         padding: theme.spacing.md,
         borderRadius: theme.radius.md,

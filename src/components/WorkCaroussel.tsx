@@ -14,7 +14,11 @@ import { createStyles } from '@mantine/core';
 export default function ProjectCaroussel() {
   return (
     <Swiper
-      modules={[Navigation, Pagination, A11y, Keyboard, Autoplay]}
+      modules={[Pagination, A11y, Keyboard, Autoplay]}
+      style={{
+        maxWidth: '100%',
+        maxHeight: '100vh',
+      }}
       slidesPerView={1}
       autoplay={{ delay: 5000 }}
       keyboard
