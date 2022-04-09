@@ -66,17 +66,20 @@ export function ExperiencesAccordion() {
 }
 
 export const WorkTab = () => (
-  <List m={15} spacing={'lg'}>
+  <Group grow mx={15} direction="column">
     {Jobs.map((job, index) => (
-      <List.Item
-        key={index}
-        icon={<Avatar src={job.image} alt={job.title} size="sm" radius="md" />}
-        style={{ justifyContent: 'space-around' }}
-      >
-        <Anchor target={'_blank'} href={job.link} component={NextLink}>
-          <Title order={4}>{job.title}</Title>
-        </Anchor>
-        <Text size="xs">{job.date}</Text>
+      <Box key={index}>
+        <Group style={{ justifyContent: 'space-between' }}>
+          <Anchor target={'_blank'} href={job.link} component={NextLink}>
+            <Group>
+              <Avatar src={job.image} alt={job.title} size="sm" radius="md" />
+              <Title order={4}>{job.title}</Title>
+            </Group>
+          </Anchor>
+          <Text size="xs" color="dimmed">
+            {job.date}
+          </Text>
+        </Group>
         <ReactMarkdown>{job.description}</ReactMarkdown>
         {job.tags &&
           job.tags.map((tag, index) => (
@@ -84,9 +87,9 @@ export const WorkTab = () => (
               {tag}
             </Badge>
           ))}
-      </List.Item>
+      </Box>
     ))}
-  </List>
+  </Group>
 );
 
 export const ProgrammingTab = () => (
