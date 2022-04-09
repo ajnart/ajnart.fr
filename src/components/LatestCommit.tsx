@@ -3,19 +3,14 @@ import { Commit } from '../data/commitClass';
 import dayjs from 'dayjs';
 import React from 'react';
 import relativeTime from 'dayjs/plugin/relativeTime';
+import { useGlobalStyles } from '../styles/styles';
 
 export default function LatestCommit(props) {
   dayjs.extend(relativeTime);
+  const { classes } = useGlobalStyles();
   const commitData: Commit = props.commit;
   return (
-    <Box
-      sx={(theme) => ({
-        backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[1],
-        padding: theme.spacing.md,
-        borderRadius: theme.radius.md,
-        boxShadow: theme.shadows.md,
-      })}
-    >
+    <Box className={classes.boxStyled}>
       <Group direction="column" style={{ padding: 10 }}>
         <Group spacing={0} style={{ display: 'flex', justifyContent: 'space-around' }}>
           <Anchor target="_blank" href={commitData.html_url}>

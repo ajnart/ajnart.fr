@@ -27,7 +27,7 @@ export const NavLinks = [
   { label: 'my cv', link: 'https://ajnart.github.io/' },
 ];
 
-export const Programmaing = [
+export const ProgrammingSkills = [
   {
     name: 'TypeScript',
     icon: SiTypescript,
@@ -79,6 +79,7 @@ export const Jobs = [
     description: 'AWS Cloud Architect',
     date: 'October 2021 - March 2022',
     link: 'https://mangrove.ai/',
+    tags: ['AWS', 'Cloud', 'DevOps', 'Python', 'React'],
   },
   {
     title: 'LumiTHD',
@@ -86,6 +87,7 @@ export const Jobs = [
     description: 'Python Backend Developer',
     date: 'Jully 2020 - February 2021',
     link: 'https://www.lumithd.fr/',
+    tags: ['Python', 'PostgreSQL', 'Flask', 'QGIS', 'DevOps'],
   },
 ];
 

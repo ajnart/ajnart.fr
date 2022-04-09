@@ -15,6 +15,7 @@ import { NextLink } from '@mantine/next';
 import { useState } from 'react';
 import { MdOutlineLocationOn } from 'react-icons/md';
 import { Icon, Link, Location } from 'tabler-icons-react';
+import { useGlobalStyles } from '../styles/styles';
 
 const useStyles = createStyles((theme) => ({
   link: {
@@ -111,15 +112,9 @@ function Info(props: any) {
 }
 
 export default function InfoCard(props: InfoCardProps) {
+  const { classes, cx } = useGlobalStyles();
   return (
-    <Box
-      sx={(theme) => ({
-        backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[1],
-        padding: theme.spacing.md,
-        borderRadius: theme.radius.md,
-        boxShadow: theme.shadows.md,
-      })}
-    >
+    <Box className={classes.boxStyled}>
       <Info {...props} />
     </Box>
   );

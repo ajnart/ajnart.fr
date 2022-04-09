@@ -7,12 +7,15 @@ import {
   createStyles,
   TabsProps,
   Anchor,
+  Accordion,
+  Group,
+  Title,
 } from '@mantine/core';
 import ReactMarkdown from 'react-markdown';
 import { MdOutlineCode, MdOutlineScience, MdOutlineWorkOutline } from 'react-icons/md';
 import * as React from 'react';
 import ProjectsCaroussel from './WorkCaroussel';
-import { Jobs, Programmaing as Programming } from '../data/constants';
+import { Jobs } from '../data/constants';
 
 function StyledTabs(props: TabsProps) {
   return (
@@ -54,29 +57,6 @@ function StyledTabs(props: TabsProps) {
   );
 }
 
-export function ProgrammingTab() {
-  return (
-    <Timeline m={15}>
-      {Programming.map((language, index) => (
-        <Timeline.Item
-          key={index}
-          lineVariant="dotted"
-          bullet={
-            <ThemeIcon size={30} radius="xl">
-              <language.icon size={20} />
-            </ThemeIcon>
-          }
-        >
-          <Text weight={550} size="md">
-            {language.name}
-          </Text>
-          <ReactMarkdown>{language.description}</ReactMarkdown>
-        </Timeline.Item>
-      ))}
-    </Timeline>
-  );
-}
-
 function WorkTab() {
   return (
     <Timeline m={15} active={Jobs.length} bulletSize={24} lineWidth={2}>
@@ -111,9 +91,6 @@ function WorkTab() {
 export function TabsComponent() {
   return (
     <StyledTabs mb={15} grow={true} tabPadding="lg">
-      <Tabs.Tab label="Programming" icon={<MdOutlineCode size={14} />}>
-        <ProgrammingTab />
-      </Tabs.Tab>
       <Tabs.Tab label="Work" icon={<MdOutlineWorkOutline size={14} />}>
         <WorkTab />
       </Tabs.Tab>
