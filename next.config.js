@@ -3,9 +3,7 @@ module.exports = async (phase, { defaultConfig }) => {
    * @type {import('next').NextConfig}
    */
   const nextConfig = {
-    env: {
-
-    },
+    env: {},
   };
-  return nextConfig
-}
+  return nextConfig;
+};
