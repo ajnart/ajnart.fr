@@ -1,12 +1,11 @@
 import { Title, Group } from '@mantine/core';
 import axios from 'axios';
 import * as React from 'react';
+import { VscProject } from 'react-icons/vsc';
 import LatestCommit from '../components/LatestCommit';
 import { links, WhoAmI } from '../data/constants';
 import ProjectsCaroussel from '../components/WorkCaroussel';
-import { VscProject } from 'react-icons/vsc';
 import InfoCard from '../components/InfoCard';
-import { useGlobalStyles } from '../styles/styles';
 import { ExperiencesAccordion } from '../components/AccordionComponent';
 
 export async function getStaticProps() {
@@ -18,9 +17,8 @@ export async function getStaticProps() {
 }
 
 export default function HomePage({ commit }) {
-  const { classes } = useGlobalStyles();
   return (
-    <Group direction="column" grow spacing={'xl'}>
+    <Group direction="column" grow spacing="xl">
       <Title order={1} align="center">
         🚧 This website is still under construction 🚧
       </Title>

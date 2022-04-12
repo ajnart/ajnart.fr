@@ -1,5 +1,5 @@
 // import Swiper core and required modules
-import { Navigation, Pagination, A11y, Keyboard, Autoplay } from 'swiper';
+import { Pagination, A11y, Keyboard, Autoplay } from 'swiper';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -9,7 +9,6 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { WorkList } from '../data/constants';
 import WorkCard from './WorkCard';
-import { createStyles } from '@mantine/core';
 
 export default function ProjectCaroussel() {
   return (

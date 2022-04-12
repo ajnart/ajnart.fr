@@ -1,10 +1,10 @@
-import { Navbar } from './Navbar';
+import { AppShell, Center, createStyles } from '@mantine/core';
+import { Header } from './Header';
 import { Footer } from './Footer';
 import { NavLinks } from '../../data/constants';
-import { Center, createStyles } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
-  work: {
+  main: {
     [theme.fn.smallerThan('md')]: {
       maxWidth: '90vw',
     },
@@ -17,19 +17,23 @@ const useStyles = createStyles((theme) => ({
 export default function Layout({ children, style }: any) {
   const { classes, cx } = useStyles();
   return (
-    <div>
-      <Navbar links={NavLinks} />
+    <AppShell
+      header={<Header links={NavLinks} />}
+      footer={<Footer links={[]} />}
+      style={{
+        ...style,
+      }}
+    >
       <Center>
         <main
-          className={cx(classes.work)}
+          className={cx(classes.main)}
           style={{
-            minHeight: 'calc(70vh - 60px)',
+            ...style,
           }}
         >
           {children}
         </main>
       </Center>
-      <Footer links={[]} />
-    </div>
+    </AppShell>
   );
 }

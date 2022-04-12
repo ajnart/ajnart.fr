@@ -1,18 +1,5 @@
-import {
-  Tabs,
-  ThemeIcon,
-  Text,
-  Timeline,
-  Image,
-  createStyles,
-  TabsProps,
-  Anchor,
-  Accordion,
-  Group,
-  Title,
-} from '@mantine/core';
-import ReactMarkdown from 'react-markdown';
-import { MdOutlineCode, MdOutlineScience, MdOutlineWorkOutline } from 'react-icons/md';
+import { Tabs, Text, Timeline, Image, TabsProps, Anchor } from '@mantine/core';
+import { MdOutlineScience, MdOutlineWorkOutline } from 'react-icons/md';
 import * as React from 'react';
 import ProjectsCaroussel from './WorkCaroussel';
 import { Jobs } from '../data/constants';
@@ -90,7 +77,7 @@ function WorkTab() {
 
 export function TabsComponent() {
   return (
-    <StyledTabs mb={15} grow={true} tabPadding="lg">
+    <StyledTabs mb={15} grow tabPadding="lg">
       <Tabs.Tab label="Work" icon={<MdOutlineWorkOutline size={14} />}>
         <WorkTab />
       </Tabs.Tab>

@@ -1,7 +1,6 @@
 import React from 'react';
 import { createStyles, Anchor, Text, Group, ActionIcon } from '@mantine/core';
-import { BrandGithub, Phone, BrandWhatsapp, Bottle, BrandGmail } from 'tabler-icons-react';
-import { MdEmail } from 'react-icons/md';
+import { BrandGithub, Phone, BrandGmail } from 'tabler-icons-react';
 import * as CONSTANTS from '../../data/constants';
 
 const useStyles = createStyles((theme) => ({

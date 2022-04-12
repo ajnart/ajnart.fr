@@ -1,6 +1,5 @@
 import { GetServerSidePropsContext } from 'next';
 import { useState } from 'react';
-import { AppProps } from 'next/app';
 import { getCookie, setCookies } from 'cookies-next';
 import { MantineProvider, ColorScheme, ColorSchemeProvider } from '@mantine/core';
 import { NotificationsProvider } from '@mantine/notifications';
@@ -9,7 +8,7 @@ import Head from 'next/head';
 import Layout from '../components/layout/Layout';
 import '../styles/global.css';
 
-export default function App(props: AppProps & { colorScheme: ColorScheme }) {
+export default function App(props: any & { colorScheme: ColorScheme }) {
   const { Component, pageProps } = props;
   const [colorScheme, setColorScheme] = useState<ColorScheme>(props.colorScheme);
 

@@ -1,8 +1,8 @@
-import { Anchor, Avatar, Box, Card, Group, Text, Title } from '@mantine/core';
-import { Commit } from '../data/commitClass';
+import { Anchor, Avatar, Box, Group, Text, Title } from '@mantine/core';
 import dayjs from 'dayjs';
 import React from 'react';
 import relativeTime from 'dayjs/plugin/relativeTime';
+import { Commit } from '../data/commitClass';
 import { useGlobalStyles } from '../styles/styles';
 
 export default function LatestCommit(props) {
@@ -20,7 +20,7 @@ export default function LatestCommit(props) {
         <Group spacing={0}>
           <Avatar
             alt="it's me"
-            radius={'xl'}
+            radius="xl"
             style={{ marginRight: 10 }}
             src={commitData.author.avatar_url}
           />
@@ -31,7 +31,7 @@ export default function LatestCommit(props) {
           <Text color="dimmed">
             &nbsp;committed {dayjs(commitData.commit.author.date).fromNow()}
           </Text>
-          <Group ml={'md'} spacing={'xs'}>
+          <Group ml="md" spacing="xs">
             <Text weight={600} style={{ color: 'green' }}>
               +{commitData.stats.additions}
             </Text>

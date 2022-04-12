@@ -1,20 +1,8 @@
-import {
-  Box,
-  Anchor,
-  Avatar,
-  Card,
-  createStyles,
-  Group,
-  Image,
-  Text,
-  Button,
-  Collapse,
-  Popover,
-} from '@mantine/core';
+import { Box, Anchor, Avatar, createStyles, Group, Text, Popover } from '@mantine/core';
 import { NextLink } from '@mantine/next';
 import { useState } from 'react';
 import { MdOutlineLocationOn } from 'react-icons/md';
-import { Icon, Link, Location } from 'tabler-icons-react';
+import { Icon, Link } from 'tabler-icons-react';
 import { useGlobalStyles } from '../styles/styles';
 
 const useStyles = createStyles((theme) => ({
@@ -69,7 +57,7 @@ export function InfoToggle(props: InfoCardProps) {
 
 function Info(props: any) {
   return (
-    <Group noWrap align={'start'} direction="row" style={{ ...props }}>
+    <Group noWrap align="start" direction="row" style={{ ...props }}>
       {/* Profile picture if it exists*/}
       {props.imageUrl && (
         <Avatar
@@ -102,7 +90,7 @@ function Info(props: any) {
             <Anchor target="_blank" href={link.link} key={link.link}>
               <Group spacing={0}>
                 {link.icon ? <link.icon size={30} /> : <Link size={30} />}
-                <Text size={'lg'}>{link.label}</Text>
+                <Text size="lg">{link.label}</Text>
               </Group>
             </Anchor>
           ))}

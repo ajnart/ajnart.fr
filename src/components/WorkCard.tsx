@@ -21,7 +21,7 @@ export default function WorkCard(props: WorkCardProps) {
 
   return (
     <div style={{ margin: 'auto', marginBottom: 40 }}>
-      <Card shadow="md" p="xs" mb="xl" withBorder={true}>
+      <Card shadow="md" p="xs" mb="xl" withBorder>
         <Card.Section>
           <Image fit="contain" src={props.image} height={160} alt={props.title} />
         </Card.Section>

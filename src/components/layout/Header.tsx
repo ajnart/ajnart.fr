@@ -1,9 +1,17 @@
 import React, { useState } from 'react';
-import { createStyles, Header, Container, Group, Burger, Paper, Transition } from '@mantine/core';
+import {
+  createStyles,
+  Header as Head,
+  Container,
+  Group,
+  Burger,
+  Paper,
+  Transition,
+} from '@mantine/core';
 import { useBooleanToggle } from '@mantine/hooks';
-import { ColorSchemeToggle } from '../ColorSchemeToggle';
-import { Logo } from '../Logo';
 import { NextLink } from '@mantine/next';
+import { ColorSchemeToggle } from '../ColorSchemeToggle';
+import { Logo } from './Logo';
 import { WhoAmI } from '../../data/constants';
 import { InfoToggle } from '../InfoCard';
 
@@ -85,7 +93,7 @@ interface HeaderResponsiveProps {
   links: { link: string; label: string }[];
 }
 
-export function Navbar({ links }: HeaderResponsiveProps) {
+export function Header({ links }: HeaderResponsiveProps) {
   const [opened, toggleOpened] = useBooleanToggle(false);
   const [active, setActive] = useState(links[0].link);
   const { classes, cx } = useStyles();
@@ -109,17 +117,11 @@ export function Navbar({ links }: HeaderResponsiveProps) {
     </>
   );
   return (
-    <Header height={HEADER_HEIGHT} mb={40} className={classes.root}>
+    <Head height={HEADER_HEIGHT} mb={40} className={classes.root}>
       <Container className={classes.header}>
         <Group>
           <ColorSchemeToggle />
-          <NextLink
-            style={{ textDecoration: 'none' }}
-            href="/"
-            onClick={() => {
-              setActive('/');
-            }}
-          >
+          <NextLink style={{ textDecoration: 'none' }} href="/">
             <Logo style={{ fontSize: 22, marginRight: 8 }} />
           </NextLink>
         </Group>
@@ -142,6 +144,6 @@ export function Navbar({ links }: HeaderResponsiveProps) {
           )}
         </Transition>
       </Container>
-    </Header>
+    </Head>
   );
 }
