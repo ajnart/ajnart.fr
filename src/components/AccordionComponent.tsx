@@ -14,8 +14,8 @@ import { NextLink } from '@mantine/next';
 import { useState } from 'react';
 import { MdOutlineCode, MdWorkOutline } from 'react-icons/md';
 import ReactMarkdown from 'react-markdown';
-import { Jobs, ProgrammingSkills } from '../data/constants';
 import { motion } from 'framer-motion';
+import { Jobs, ProgrammingSkills } from '../data/constants';
 
 const variants = {
   open: { rotate: 180 },
@@ -101,7 +101,7 @@ export const WorkTab = () => (
         </Group>
         <ReactMarkdown>{job.description}</ReactMarkdown>
         {job.tags &&
-          job.tags.map((tag, index) => (
+          job.tags.map((tag) => (
             <Badge size="sm" mx={3} radius="sm" key={tag}>
               {tag}
             </Badge>

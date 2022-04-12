@@ -1,5 +1,4 @@
-import { Paper, Image,Text, Card, Box, Container, BackgroundImage, Center } from '@mantine/core';
-import { WhoAmI } from '../../data/constants';
+import { Text, Box, BackgroundImage, Center } from '@mantine/core';
 
 export default function SwipeComponent() {
   return (
