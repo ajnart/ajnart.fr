@@ -117,12 +117,12 @@ export function Header({ links }: HeaderResponsiveProps) {
     </>
   );
   return (
-    <Head height={HEADER_HEIGHT} mb={40} className={classes.root}>
+    <Head height={HEADER_HEIGHT} mb={10} className={classes.root}>
       <Container className={classes.header}>
         <Group>
           <ColorSchemeToggle />
           <NextLink style={{ textDecoration: 'none' }} href="/">
-            <Logo style={{ fontSize: 22, marginRight: 8 }} />
+            <Logo style={{ fontSize: 22 }} />
           </NextLink>
         </Group>
         <Group spacing={5} className={classes.links}>
