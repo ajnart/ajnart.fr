@@ -17,13 +17,7 @@ const useStyles = createStyles((theme) => ({
 export default function Layout({ children, style }: any) {
   const { classes, cx } = useStyles();
   return (
-    <AppShell
-      header={<Header links={NavLinks} />}
-      footer={<Footer links={[]} />}
-      style={{
-        ...style,
-      }}
-    >
+    <AppShell header={<Header links={NavLinks} />} footer={<Footer links={[]} />}>
       <Center>
         <main
           className={cx(classes.main)}
