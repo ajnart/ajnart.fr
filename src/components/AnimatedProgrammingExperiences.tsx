@@ -8,7 +8,6 @@ import ReactMarkdown from 'react-markdown';
 const useStyles = createStyles((theme) => ({
   card: {
     borderColor: theme.colors.blue[5],
-    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[1],
     position: 'relative',
     overflow: 'hidden',
     transition: 'transform 150ms ease, box-shadow 100ms ease',
@@ -16,8 +15,7 @@ const useStyles = createStyles((theme) => ({
     paddingLeft: theme.spacing.xl * 2,
 
     '&:hover': {
-      boxShadow: theme.shadows.md,
-      transform: 'scale(1.02)',
+      transform: 'scale(0.99)',
     },
 
     '&::before': {
@@ -26,8 +24,8 @@ const useStyles = createStyles((theme) => ({
       top: 0,
       bottom: 0,
       left: 0,
-      width: 6,
-      backgroundImage: theme.fn.linearGradient(0, theme.colors.blue[5], theme.colors.blue[5]),
+      width: 4,
+      backgroundColor: theme.colors.blue[5],
     },
   },
 }));
@@ -74,8 +72,8 @@ const AnimatedProgrammingExperience = () => {
               <ActionIcon
                 style={{
                   position: 'absolute',
-                  top: 7,
-                  right: 7,
+                  top: 10,
+                  right: 10,
                 }}
                 size="xl"
                 radius="md"
