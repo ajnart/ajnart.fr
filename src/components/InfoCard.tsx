@@ -78,7 +78,7 @@ function Info(props: any) {
             </Text>
             <Text color="dimmed">{props.description}</Text>
             {props.location && (
-              <Group spacing={0}>
+              <Group mt={5} spacing={0}>
                 <MdOutlineLocationOn size={25} />
                 <Text>{props.location}</Text>
               </Group>
@@ -101,9 +101,5 @@ function Info(props: any) {
 
 export default function InfoCard(props: InfoCardProps) {
   const { classes, cx } = useGlobalStyles();
-  return (
-    <Box className={classes.boxStyled}>
-      <Info {...props} />
-    </Box>
-  );
+  return <Info {...props} />;
 }

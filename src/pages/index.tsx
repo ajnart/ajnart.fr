@@ -8,6 +8,7 @@ import ProjectsCaroussel from '../components/WorkCaroussel';
 import InfoCard from '../components/InfoCard';
 import { ExperiencesAccordion } from '../components/AccordionComponent';
 import { Mail } from 'tabler-icons-react';
+import { getCookie, setCookies } from 'cookies-next';
 
 export async function getStaticProps() {
   const commit = await axios
@@ -18,13 +19,16 @@ export async function getStaticProps() {
 }
 
 export default function HomePage({ commit }) {
-  const [modalOpen, setModalOpen] = React.useState(true);
+  const [modalOpen, setModalOpen] = React.useState(getCookie('modalOpen') ? false : true);
   return (
     <Group direction="column" grow spacing="xl">
       <Modal
         size={'lg'}
         opened={modalOpen}
-        onClose={() => setModalOpen(false)}
+        onClose={() => {
+          setModalOpen(false);
+          setCookies('modalOpen', 'true');
+        }}
         title={<Title order={3}>🚧 This website is still under construction 🚧</Title>}
       >
         <Text size="xl">
@@ -41,7 +45,6 @@ export default function HomePage({ commit }) {
           Contact me
         </Button>
       </Modal>
-      <LatestCommit commit={commit} />
       <InfoCard {...WhoAmI} />
       <ExperiencesAccordion />
       <Group>
@@ -49,6 +52,7 @@ export default function HomePage({ commit }) {
         <Title order={2}>Projects</Title>
       </Group>
       <ProjectsCaroussel />
+      <LatestCommit commit={commit} />
     </Group>
   );
 }

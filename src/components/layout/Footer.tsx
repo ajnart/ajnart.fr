@@ -49,9 +49,9 @@ export function Footer({ links }: FooterCenteredProps) {
   ));
 
   return (
-    <Group direction="column" align="center" mb={20} mt={100}>
+    <Group direction="column" align="center" mb={15}>
       <Group className={classes.links}>{items}</Group>
-      <Group spacing={0} position="right" noWrap>
+      <Group spacing={'xs'} position="right" noWrap>
         <ActionIcon<'a'>
           component="a"
           href={`https://github.com/${CONSTANTS.links.GithubName}`}
@@ -68,7 +68,7 @@ export function Footer({ links }: FooterCenteredProps) {
       </Group>
       <Text
         style={{
-          fontSize: '0.70rem',
+          fontSize: '0.75rem',
           textAlign: 'center',
           color: '#a0aec0',
         }}
