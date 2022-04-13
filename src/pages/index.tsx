@@ -1,4 +1,4 @@
-import { Title, Group } from '@mantine/core';
+import { Title, Group, Modal, Text, Button } from '@mantine/core';
 import axios from 'axios';
 import * as React from 'react';
 import { VscProject } from 'react-icons/vsc';
@@ -7,6 +7,7 @@ import { links, WhoAmI } from '../data/constants';
 import ProjectsCaroussel from '../components/WorkCaroussel';
 import InfoCard from '../components/InfoCard';
 import { ExperiencesAccordion } from '../components/AccordionComponent';
+import { Mail } from 'tabler-icons-react';
 
 export async function getStaticProps() {
   const commit = await axios
@@ -17,11 +18,29 @@ export async function getStaticProps() {
 }
 
 export default function HomePage({ commit }) {
+  const [modalOpen, setModalOpen] = React.useState(true);
   return (
     <Group direction="column" grow spacing="xl">
-      <Title order={1} align="center">
-        🚧 This website is still under construction 🚧
-      </Title>
+      <Modal
+        size={'lg'}
+        opened={modalOpen}
+        onClose={() => setModalOpen(false)}
+        title={<Title order={3}>🚧 This website is still under construction 🚧</Title>}
+      >
+        <Text size="xl">
+          There will be bugs, sorry about that. You can still rely on the information being
+          presented.
+        </Text>
+        <Button
+          mt="lg"
+          component="a"
+          variant="outline"
+          href="mailto:thomascamlong@gmail.com"
+          leftIcon={<Mail />}
+        >
+          Contact me
+        </Button>
+      </Modal>
       <LatestCommit commit={commit} />
       <InfoCard {...WhoAmI} />
       <ExperiencesAccordion />
