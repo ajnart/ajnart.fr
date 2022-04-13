@@ -16,7 +16,6 @@ import { MdOutlineCode, MdWorkOutline } from 'react-icons/md';
 import ReactMarkdown from 'react-markdown';
 import { motion } from 'framer-motion';
 import { Jobs, ProgrammingSkills } from '../data/constants';
-import HighlightCard from './gallery-card/GalleryCard';
 import AnimatedProgrammingExperiences from './AnimatedProgrammingExperiences';
 
 const variants = {
