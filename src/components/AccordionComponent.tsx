@@ -16,6 +16,8 @@ import { MdOutlineCode, MdWorkOutline } from 'react-icons/md';
 import ReactMarkdown from 'react-markdown';
 import { motion } from 'framer-motion';
 import { Jobs, ProgrammingSkills } from '../data/constants';
+import HighlightCard from './gallery-card/GalleryCard';
+import AnimatedProgrammingExperiences from './AnimatedProgrammingExperiences';
 
 const variants = {
   open: { rotate: 180 },
@@ -27,17 +29,12 @@ export function ExperiencesAccordion() {
   return (
     <Accordion multiple>
       <Accordion.Item
-        onClick={() => setIsOpen([!isOpen[0], isOpen[1]])}
         iconPosition="right"
         sx={(theme) => ({
-          backgroundColor:
-            theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[1],
-          borderRadius: theme.radius.md,
-          boxShadow: theme.shadows.xl,
           marginBottom: theme.spacing.sm,
         })}
         label={
-          <Group>
+          <Group onClick={() => setIsOpen([!isOpen[0], isOpen[1]])}>
             <motion.div
               transition={{ duration: 0.2 }}
               animate={isOpen[0] ? 'open' : 'closed'}
@@ -51,20 +48,13 @@ export function ExperiencesAccordion() {
           </Group>
         }
       >
-        <ProgrammingTab />
+        <AnimatedProgrammingExperiences />
       </Accordion.Item>
 
       <Accordion.Item
-        onClick={() => setIsOpen([isOpen[0], !isOpen[1]])}
         iconPosition="right"
-        sx={(theme) => ({
-          backgroundColor:
-            theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[1],
-          borderRadius: theme.radius.md,
-          boxShadow: theme.shadows.xl,
-        })}
         label={
-          <Group>
+          <Group onClick={() => setIsOpen([isOpen[0], !isOpen[1]])}>
             <motion.div
               transition={{ duration: 0.2 }}
               animate={isOpen[1] ? 'open' : 'closed'}
@@ -85,7 +75,7 @@ export function ExperiencesAccordion() {
 }
 
 export const WorkTab = () => (
-  <Group grow mx={15} direction="column">
+  <Group p={'md'} grow mx={15} direction="column">
     {Jobs.map((job, index) => (
       <Box key={index}>
         <Group style={{ justifyContent: 'space-between' }}>
