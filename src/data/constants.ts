@@ -3,13 +3,12 @@ import { InfoCardProps } from '../components/InfoCard';
 import { WorkCardProps as ProjectCardProps } from '../components/WorkCard';
 import {
   SiAmazonaws,
-  SiArchlinux,
   SiCplusplus,
   SiDocker,
-  SiFirebase,
   SiFlutter,
   SiPython,
   SiReact,
+  SiRust,
   SiTypescript,
 } from 'react-icons/si';
 
@@ -38,13 +37,13 @@ export const ProgrammingSkills = [
     name: 'React',
     icon: SiReact,
     description:
-      'Several projects using React using various components librarires such as **Material UI**, **Chakra UI** and **Mantine**. React Native projects for my 3rd year at Epitech, this website and during my internship at Mangrove.',
+      'Several projects using React using various components librarires such as **Material UI**, **Chakra UI** and **Mantine**. React Native projects for my 3rd year at Epitech. **This** website is built using Mantine and NextJS ! Also did a one page serverless application during my internship at Mangrove.',
   },
   {
     name: 'Flutter',
     icon: SiFlutter,
     description:
-      'Second and third year at Epitech, personal projects using **Flutter** and **Firebase**, also did a 6-weeks course on Udemy during spring 2021 about building full-stack apps with flutter',
+      'Second and third year at Epitech, personal projects using **Flutter** and **Firebase**, also did a 6-weeks course on Udemy during spring 2021 about building full-stack apps with flutter. Love the framework and hope it continues to grow.',
   },
   {
     name: 'Cloud Computing',
@@ -62,7 +61,7 @@ export const ProgrammingSkills = [
     name: 'DevOps',
     icon: SiDocker,
     description:
-      'Raspberry PI projects, complex stack used to replace various streaming services by automating torrent downloads. CI/CD practices on all projects.',
+      'Raspberry PI home projects (automation mainly). Made a complex stack used to replace various streaming services by automating torrent downloads. CI/CD practices on all projects and docker-ising every project.',
   },
   {
     name: 'C/C++',
@@ -70,6 +69,13 @@ export const ProgrammingSkills = [
     description:
       "Second year at Epitch, LeetCode algorithm subjects, usage of the language for compettitive programming at BattleDev and Google KickStart. RPG-like game in 2D with using C's SFML bindings. Personal projects embedded programming on Raspberry PI",
   },
+  {
+    name: 'Rust',
+    icon: SiRust,
+    description:
+      'Language basics but interested in learning more. Did a small hangman cli game and (exercism.io)[https://exercism.org/tracks/rust] exercices.',
+  },
+
 ];
 
 export const Jobs = [

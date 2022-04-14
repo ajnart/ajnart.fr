@@ -33,15 +33,15 @@ const useStyles = createStyles((theme) => ({
 const wrapperVariants = {
   initial: {
     clipPath: 'polygon(0 0, 0 0, 0 100%, 0% 100%)',
-    transition: { duration: 0.4 },
+    transition: { duration: 0.2 },
   },
   animate: {
     clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
-    transition: { duration: 0.4, staggerChildren: 0.1 },
+    transition: { duration: 0.2, staggerChildren: 0.05 },
   },
   exit: {
     clipPath: 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)',
-    transition: { duration: 0.4 },
+    transition: { duration: 0.2 },
   },
 };
 const squareVariants = {
@@ -102,7 +102,7 @@ const AnimatedProgrammingExperience = () => {
             <Grid p={'md'} gutter={'xl'}>
               {ProgrammingSkills.map((skill, i) => (
                 <Grid.Col span={4} xs={3} sm={2} key={i}>
-                  <Tooltip label={skill.name} withArrow>
+                  <Tooltip label={<Title order={4}>{skill.name}</Title>} withArrow>
                     <motion.div
                       key={i}
                       onClick={() => setSelectedSkill(skill)}
