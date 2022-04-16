@@ -19,6 +19,7 @@ export const links = {
   GithubRepo: 'ajnart.fr',
   WebsiteName: 'ajnart.fr',
   LinkedinName: 'thomas-camlong',
+  FormSpreeUrl: 'https://formspree.io/f/xqknyydj',
 };
 
 export const NavLinks = [

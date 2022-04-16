@@ -19,6 +19,7 @@ import { ContactIconsList } from './ContactIcons';
 import { motion } from 'framer-motion';
 import { useForm } from '@mantine/form';
 import { showNotification, updateNotification } from '@mantine/notifications';
+import { links } from '../../data/constants'
 import axios from 'axios';
 
 export default function ContactForm(props) {
@@ -90,7 +91,7 @@ export function ContactUs(props) {
 
             setTimeout(() => {
               axios
-                .post('https://formspree.io/f/xqknyydj', values)
+                .post(links.FormSpreeUrl, values)
                 .then(() => {
                   updateNotification({
                     id: 'load-data',
