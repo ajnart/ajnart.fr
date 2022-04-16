@@ -23,13 +23,13 @@ import axios from 'axios';
 
 export default function ContactForm(props) {
   const [opened, setOpened] = useState(false);
-
+	console.log(props.opened);
   return (
     <>
       <Modal
         size={1000}
+				opened={props.opened || opened}
         radius="lg"
-        opened={opened}
         padding={0}
         withCloseButton={false}
         onClose={() => setOpened(false)}
