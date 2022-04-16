@@ -73,9 +73,8 @@ export const ProgrammingSkills = [
     name: 'Rust',
     icon: SiRust,
     description:
-      'Language basics but interested in learning more. Did a small hangman cli game and (exercism.io)[https://exercism.org/tracks/rust] exercices.',
+      'Language basics but interested in learning more. Did a small hangman cli game and [exercism.io](https://exercism.org/tracks/rust) exercices.',
   },
-
 ];
 
 export const Jobs = [
@@ -178,6 +177,19 @@ export const WorkList: ProjectCardProps[] = [
       {
         name: 'NodeJS',
         color: 'green',
+      },
+    ],
+  },
+  {
+    title: 'Flutter projects',
+    description: 'Several Flutter projects made during Jully 2021. All accessible using web',
+    image:
+      'https://www.appstud.com/wp-content/uploads/2020/01/72AF9324-C50A-42F9-9236-C21DB13B90D9.png',
+    link: 'https://ajnart.github.io/flutter/',
+    tags: [
+      {
+        name: 'Flutter',
+        color: 'blue',
       },
     ],
   },
