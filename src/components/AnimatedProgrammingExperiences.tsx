@@ -111,7 +111,9 @@ const AnimatedProgrammingExperience = () => {
                     >
                       {/* Box with a dark or white theme adapted background color and rounded corner */}
                       <ActionIcon variant="light" color={'blue'} radius="lg" size={80}>
-                        <skill.icon size={'50%'} />
+                        <motion.div whileHover={{ scale: 1.2 }}>
+                          <skill.icon size={'50%'} />
+                        </motion.div>
                       </ActionIcon>
                     </motion.div>
                   </Tooltip>
