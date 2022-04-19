@@ -1,5 +1,5 @@
 module.exports = {
-  stories: ['../**/*.story.mdx', '../**/*.story.@(js|jsx|ts|tsx)'],
+  stories: ['../**/*.story.mdx', '../**/*.story.*'],
   addons: [
     'storybook-dark-mode',
     '@storybook/addon-links',
@@ -9,6 +9,10 @@ module.exports = {
       options: { optimizationLevel: 2 },
     },
   ],
+  typescript: {
+    check: false,
+    reactDocgen: false,
+  },
   framework: '@storybook/react',
   features: { emotionAlias: false },
   webpackFinal: async (config, { configType }) => {
