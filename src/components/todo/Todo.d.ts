@@ -12,6 +12,6 @@ export interface ListOfTodoLists {
 
 export interface todoItem {
   id: number;
-  text: string;
+  title: string;
   completed: boolean;
 }

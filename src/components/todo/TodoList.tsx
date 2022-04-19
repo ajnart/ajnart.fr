@@ -19,55 +19,52 @@ const MainTodoList: todoList = {
 };
 
 export function TodoList(props) {
-  const [tasks, setTasks] = useState(() => {
-    // get the todos from localstorage
-    const savedTasks = localStorage.getItem('tasks');
-    // if there are todos stored
-    if (savedTasks) {
-      // return the parsed JSON object back to a javascript object
-      return JSON.parse(savedTasks);
-      // otherwise
-    } else if (props.tasks) {
-      return props.tasks;
-    } else {
-      // return an empty array
-      return [];
-    }
-  });
+  const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-  }, [tasks]);
+    const localTasks = JSON.parse(localStorage.getItem('tasks'));
+    if (localTasks) {
+      setTasks(localTasks);
+    }
+  }, []);
+
+	function addItem(item: todoItem) {
+		setTasks([...tasks, item]);
+		localStorage.setItem('tasks', JSON.stringify(tasks));
+	}
 
   return (
     <>
-      {tasks.map((task, index) => (
+      {tasks.map((task: todoItem, index) => (
         <Checkbox
           key={index}
           label={task.title}
-          id={task.id}
-          defaultChecked={task.done}
+          id={task.id.toString()}
+          defaultChecked={task.completed}
           onClick={(e) => {
             const targetId = e.target['id'];
             const newTasks = tasks.map((t) => {
-              if (t.id === targetId) {
-                t.done = !t.done;
+              if (t.id.toString() === targetId) {
+                t.completed = !t.completed;
               }
               return t;
             });
-            localStorage.setItem('tasks', JSON.stringify(tasks));
-
             setTasks(newTasks);
+            localStorage.setItem('tasks', JSON.stringify(newTasks));
           }}
         />
       ))}
       <Button
         onClick={() => {
-          localStorage.removeItem('tasks');
-        }}
-      >
-        Clear Tasks
-      </Button>
-    </>
-  );
+          addItem({
+						id: tasks.length + 1,
+						title: 'New Task',
+						completed: false,
+					});
+				}}
+			>
+				Add Task
+			</Button>
+		</>
+	);
 }
