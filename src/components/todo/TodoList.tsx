@@ -1,22 +1,51 @@
-import { Button, Checkbox, CheckboxGroup, List, Text, ThemeIcon } from '@mantine/core';
+import {
+  ActionIcon,
+  Box as Container,
+  Button,
+  Checkbox,
+  CheckboxGroup,
+  Group,
+  List,
+  Text,
+  TextInput,
+  ThemeIcon,
+} from '@mantine/core';
+import { useForm } from '@mantine/form';
 import { useEffect, useState } from 'react';
-import { MdTask } from 'react-icons/md';
+import { MdDelete, MdTask } from 'react-icons/md';
 import { CircleCheck, CircleDashed } from 'tabler-icons-react';
 import { todoList, todoItem } from './Todo';
 
-const MainTodoList: todoList = {
-  title: 'Main Todo List',
-  todos: [],
-  addTodo: function (item: todoItem): void {
-    this.todos.push(item);
-  },
-  removeTodo: function (item: todoItem): void {
-    this.todos = this.todos.filter((todo) => todo !== item);
-  },
-  toggleTodo: function (item: todoItem): void {
-    item.completed = !item.completed;
-  },
-};
+function addItemForm(tasks, addItem) {
+  // Generate a unique ID for the new item with the current timestamp
+  const id = Date.now();
+  const form = useForm({
+    initialValues: {
+      title: '',
+      completed: false,
+      id: id,
+    },
+  });
+
+  return (
+    <form
+      onSubmit={form.onSubmit((values) => {
+        addItem(values);
+        form.reset();
+      })}
+    >
+      <TextInput
+        required
+        label="Task"
+        placeholder="Clean the house"
+        {...form.getInputProps('title')}
+      />
+      <Button type="submit" variant="outline">
+        Add
+      </Button>
+    </form>
+  );
+}
 
 export function TodoList(props) {
   const [tasks, setTasks] = useState([]);
@@ -28,43 +57,50 @@ export function TodoList(props) {
     }
   }, []);
 
-	function addItem(item: todoItem) {
-		setTasks([...tasks, item]);
-		localStorage.setItem('tasks', JSON.stringify(tasks));
-	}
+  function addItem(item: todoItem) {
+    setTasks([...tasks, item]);
+    localStorage.setItem('tasks', JSON.stringify([...tasks, item]));
+  }
 
   return (
     <>
       {tasks.map((task: todoItem, index) => (
-        <Checkbox
-          key={index}
-          label={task.title}
-          id={task.id.toString()}
-          defaultChecked={task.completed}
-          onClick={(e) => {
-            const targetId = e.target['id'];
-            const newTasks = tasks.map((t) => {
-              if (t.id.toString() === targetId) {
-                t.completed = !t.completed;
-              }
-              return t;
-            });
-            setTasks(newTasks);
-            localStorage.setItem('tasks', JSON.stringify(newTasks));
-          }}
-        />
+        <Group key={index}>
+          <Container style={{width: 400}}>
+            <Checkbox
+              label={task.title}
+              id={task.id.toString()}
+              defaultChecked={task.completed}
+              onClick={(e) => {
+                const targetId = e.target['id'];
+                const newTasks = tasks.map((t) => {
+                  if (t.id.toString() === targetId) {
+                    t.completed = !t.completed;
+                  }
+                  return t;
+                });
+                setTasks(newTasks);
+                localStorage.setItem('tasks', JSON.stringify(newTasks));
+              }}
+            />
+          </Container>
+          {/* Action for delete button */}
+          <ActionIcon>
+            <ThemeIcon
+              onClick={() => {
+                const newTasks = tasks.filter((t) => t.id !== task.id);
+                setTasks(newTasks);
+                localStorage.setItem('tasks', JSON.stringify(newTasks));
+              }}
+              size="sm"
+              variant="light"
+            >
+              <MdDelete />
+            </ThemeIcon>
+          </ActionIcon>
+        </Group>
       ))}
-      <Button
-        onClick={() => {
-          addItem({
-						id: tasks.length + 1,
-						title: 'New Task',
-						completed: false,
-					});
-				}}
-			>
-				Add Task
-			</Button>
-		</>
-	);
+      {addItemForm(tasks, addItem)}
+    </>
+  );
 }
