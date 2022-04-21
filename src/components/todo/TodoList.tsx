@@ -18,7 +18,7 @@ import { MdDelete, MdTask } from 'react-icons/md';
 import { CircleCheck, CircleDashed } from 'tabler-icons-react';
 import { todoList, todoItem } from './Todo';
 
-function addItemForm(tasks, addItem) {
+function useItemForm(tasks, addItem) {
   const [opened, setOpened] = useState(false);
   // Generate a unique ID for the new item with the current timestamp
   const id = Date.now();
@@ -112,7 +112,7 @@ export function TodoList(props) {
           </ActionIcon>
         </Group>
       ))}
-      {addItemForm(tasks, addItem)}
+      {useItemForm(tasks, addItem)}
     </Group>
   );
 }
