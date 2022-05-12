@@ -100,7 +100,7 @@ export const Jobs = [
 export const WhoAmI: InfoCardProps = {
   title: 'Thomas',
   description:
-    '21 Year old student studying computer science at EPITECH in Bordeaux, France. I am interested in new programming technologies including but not limited to: Machine Learning, Flutter, DevOps techniques and embedded programming. Currently building this website with React and Typescript.',
+    '21 Year old student studying computer science at EPITECH in Bordeaux, France. I am interested in new programming technologies including but not limited to: Machine Learning, Flutter, DevOps techniques and embedded programming. Currently building Homarr, a homepage for your self-hosted services!',
   location: 'Bordeaux, France',
   imageUrl: 'https://avatars.githubusercontent.com/u/49837342?v=4',
   links: [
