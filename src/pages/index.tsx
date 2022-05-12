@@ -27,7 +27,7 @@ export default function HomePage({ commit }) {
       opened={modalOpen}
       onClose={() => {
         setModalOpen(false);
-        setCookies('modalOpen', 'true');
+        setCookies('modalOpen', 'true', { maxAge: 60 * 60 * 24 * 365 });
       }}
       title={<Title order={3}>🚧 This website is still under construction 🚧</Title>}
     >
